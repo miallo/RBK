@@ -1,7 +1,7 @@
 % Für Bindekorrektur als optionales Argument "BCORfaktormitmaßeinheit", dann
 % sieht auch Option "twoside" vernünftig aus
 % Näheres zu "scrartcl" bzw. "scrreprt" und "scrbook" siehe KOMA-Skript Doku
-\documentclass[draft,12pt,a4paper,titlepage,headinclude]{scrartcl}
+\documentclass[12pt,a4paper,titlepage,headinclude]{scrartcl}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Formatierung %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -482,97 +482,110 @@ In Tabelle \ref{tab:par} im Anhang sind Kennzahlen für verschiedene Systeme und
 \subsection{Nusselt-Zahl}
 Zur Beschreibung des Wärmetransportes wird die Nusselt-Zahl
 \begin{align*}
-	Nu=\frac{\text{gesamter Wärmetransport}}{\text{rein diffusiver Wärme Transport}}
+	Nu=\frac{\text{gesamter Wärmetransport}}{\text{diffusiver Wärmetransport}}
 \end{align*}
 verwendet.
-Diese ergibt unterhalb der kritischen Rayleigh-Zahl $Nu=1$, aufgrund von rein diffusiven Transports.
-Oberhalb dieser ergibt sich eine Zahl $Nu>1$, zunehmend mehr Wärme transportiert wird.
-Aufgrund der Randbedingung der Geschwindigkeit gibt es am Rand keine Advektion.
+Diese ist unterhalb der kritischen Rayleigh-Zahl $Nu=1$, da hier ausschließlich diffusiver Transport stattfindet.
+Oberhalb dieser steigt $Nu$ kontinuierlich an, da die Wärme zunehmend durch Konvektion transportiert wird.
+Aufgrund der Randbedingung der Geschwindigkeit gibt es an den Rändern keine Advektion.
 Es muss sich also eine diffusive Randschicht ausbilden.
-Ist die Advektion im inneren der Zelle groß genug, wird keine Wärme mehr diffusiv übertragen und somit muss die thermische Randschicht einen steilen Gradienten der Temperatur aufweisen, für welchen die Nussel-Zahl gegeben ist durch
+Ist die Advektion im Inneren der Zelle ausreichend groß, so wird dort keine Wärme mehr diffusiv übertragen und somit nimmt die Dicke der thermischen Grenzschicht $\delta$ ab.
+Aus einfachen Überlegungen lässt sich schnell nachvollziehen, dass für die Nusselt-Zahl in erster Näherung gilt
 \begin{align}
-	Nu=\frac{L}{2\delta}.
+	Nu=\frac{L}{2\delta}\quad.
 \end{align}
-Das $\delta$ ist die Dicke der thermischen Randschicht.
 Eine weitergehende Beschreibung der Nusselt-Zahl und möglicher Abhängigkeiten zu den anderen Parameters kann im Buch von J.S. Turner \cite{Bef} in den Kapiteln 7.1.1, 7.1.3 und 7.3.1 nachgelesen werden.
 %Bild des Temperaturprofils aus der Simulation
 
 \subsection{Bewegungsformen und Profile}
-Auf ungemittelten Zeitskalen zeigen sich auch Strömungsformen, wie z.B. Plumes.
-Plumes sind o.B.d.A. aufsteigende Strömungen, die von einer Auftriebsquelle ausgehen, welche häufig als Punktquelle genähert wird.
-Sie sind ähnlich zu einem Jet, allerdings durch Dichteunterschiede getrieben.
-Ihren Namen erhielten diese Strömungen aufgrund ihrer Form, den während der Aufströmung dehnen sie sich aus und bilden einen Pilzartigen Kopf.
-Eine solche Strömung kann z.B. an einer Rauchfahne beobachtet werden, die sich von einerm Feuer ausbildet.
-Außerdem sind Mantelplumes, als Plumes im Erdmantel, eine Quelle für Vulkanische Aktivität.
-Ein Schema für einen solchen Plume ist in der Abbildung \ref{fig:plume} zu sehen.
+Bisher wurden nur über lange Zeiträume gemittelte Effekte näher betrachtet.
+Es stellt sich jedoch heraus, dass es auch spontane, die Symmetrie brechende Effekte gibt, beispielsweise Plumes.
+Plumes sind durch Dichteunterschiede auftretende Strömungen, welche von einer Auftriebsquelle ausgehen.
+Sie sind ähnlich zu einem Jet, allerdings sind diese verursacht durch einen innitialen Geschwindigkeitsunterschied.
+Eine schematische Darstellung eines Plumes ist in der Abbildung \ref{fig:plume} zu sehen.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.5\textwidth]{Plume.png}
-\caption{Schema eines Mantelplumes.\protect\footnotemark Der untere Teil des Plumes stellt eine Auftriebsgetriebene Aufströmung dar, welche oben an der Grenze des Mantels einen Pilzkopfartige Form annimmt. An dem Ort des Auftreffens steigt die Warscheinlichkeit vukanischer Aktivität.}
+\caption{Schema eines Mantelplumes.\protect\footnotemark Der untere Teil des Plumes besteht aus einer auftriebsgetriebenen Aufströmung, welche oben an der Grenze des Mantels eine pilzkopfartige Form annimmt. An dem Ort des Auftreffens steigt die Warscheinlichkeit vukanischer Aktivität.}
 \label{fig:plume}
 \end{figure}
 \footnotetext{\url{https://de.wikipedia.org/w/index.php?title=Plume_\%28Geologie\%29\&oldid=168415045} vom 02.03.2018 13:30}
-Eine sehr detallierte Analyse von Plumes ist im Buch von J.S. Turner \cite{Bef} im Kapitel 6 zu finden.\\
+Mantelplumes (Plumes im Erdmantel) sind eine Quelle für vulkanische Aktivität.
+Häufig gut zu beobachten sind sie an den Schornsteinen von großen Kraftwerken: Man sieht dort häufig kleine „Wolkenstöße“ nacheinander kommen.
+Dieses Phänomen kann man auch in Abb. \ref{fig:bromo_plumes} sehen, wo sich die Plumes deutlich in den Abgasen des Vulkans \textit{Mount Bromo} erkennen lassen.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\linewidth]{bromo_plumes}
+  \caption{Plumes sichtbar am Beispiel des Mount Bromo (10.1.2017). Gut erkennbar sind die vielen kleinen pilzkopfartigen Dampfbüschel.\label{fig:bromo_plumes}}
+\end{figure}
 
-Diese treiben die LSC (Large Scale Circulation) an.
-Diese können von hexagonalen Zellen zu Walzen förmigen Strukturen und anderen reichen.
-Um diese Formen auch im sehr Turbulenten Strömungen zu erkennen muss das Geschwindigkeitsfeld zeitlich gemittelt werden. 
-Bei kleinen Rayleigh-Zahlen ist der Turbulenzgrat noch gering, so dass das zeitliche Mittel nur kurz durchgeführt werden muss um diese Strukturen zu sehen.\\
+\subsection{Large Scale Circulation}
+Die großräumige Zirkulation (Large Scale Circulation, LSC), welche durch Reibungseffekte kontinuierlich abgebremst wird, wird durch zeitlich und räumlich statistisch auftretende Plumes angetrieben.
+Die möglichen Formen der LSC sind sehr vielfältig und können zum Beispiel hexagonal ode auch walzenförmig sein.
+Um diese Formen auch in sehr turbulenten Strömungen zu erkennen, muss das Geschwindigkeitsfeld zeitlich gemittelt werden. 
+Je kleiner die Rayleigh-Zahl, desto kleiner die Turbulenz und desto kürzer muss der Zeitraum der Mittelung sein, um LCS zu sehen.
 \begin{figure}[!ht]
 \centering
 \includegraphics{1e5.eps}
-\caption{Ergenis einer Simulation für $Ra=10^5$.}
+\caption{Ergebnis einer Simulation für $Ra=10^5$. Gut erkennbar ist, dass eine großräumige kreisförmige Strömung existiert, welche an den Rändern und im Zentrum zum erliegen kommt.}
 \label{fig:1e5_num}
 \end{figure}
 
-Wie häufig ein solcher Plume ensteht und wie stark er eine LSC antreibt hängt von der Rayleigh-Zahl ab und spiegelt sich im Turbulenzgrad wieder.
-An dieser Stelle lohnt es nicht hier weiter ins Detail zu gehen, da dies eine längere Diskussion ist, der Leser ist wieder auf das Buch von J.S. Tuner \cite{Bef} Kapitel 7.3 verwiesen.
-Diese Plumes sind gut zu messen, da sie eine deutlich unterschiedliche Temperatur und Dichte zur Umgebung haben.
+Wie häufig ein Plume entsteht und wie stark er (im stochastischen Mittel) eine LSC antreibt hängt von der Rayleigh-Zahl ab und spiegelt sich im Turbulenzgrad wieder.
+Diese Plumes sind gut zu messen, da sie einen deutlichen Temperatur- und damit und Dichte-Unterschied zur Umgebung aufweisen.
 Hierauf wird in den Kapiteln \ref{sec:schatte} und \ref{sec:profile} näher eingegangen.
 
 \newpage
 \section{Experiment und Setup}
 \label{sec:durchfuehrung}
 
-Die RBK wird in einer kubischen Plexiglas Zelle mit $20\si{\centi\meter}$ simuliert.
-Diese wird von oben und unten mithilfe einer Metallplatte geheizt und gekühlt entsprechen der Randbedingung.
-Innerhalb der Zelle befinden sich Thermistoren, welche unten genauer erläutert werden um die Temperatur zu messen.
-Es gibt eine Phalanx an Thermistoren in festen Abständen und einen frei in $z$-Richtung verfahrbaren.
-Erstere dienen zur zeitlichen Korrelation auf, oder absteigender Strukturen, wie z.B. Plumes.
-Letzter wird zur Messung der mittleren Temperatur an bestimmten orten verwendet.
+Die RBK wird in einer kubischen Plexiglas Zelle mit $20\si{\centi\meter}$ vermessen.
+Sie wird unten durch eine Metallplatte geheizt und oben gekühlt entsprechen der Randbedingung.
+Innerhalb der Zelle befinden sich Thermistoren (s.u.) um die Temperatur zu messen.
+Einer ist frei in $z$-Richtung verfahrbar, die anderen sind in festen Abständen aufgereiht.
+Erstere dienen zur zeitlichen Korrelation auf-, oder absteigender Strukturen, wie z.B. Plumes.
+Letzter wird zur Messung der mittleren Temperatur an bestimmten Orten verwendet.
 Ebenfalls sind Thermistoren zu Messung der Plattentemperaturen vorhanden.
 
-Die Widerstände der Thermistoren werden entweder durch ein Multimeter oder durch eine Wheatstonebrücke bestimmt, welche ebenfalls weiter unten beschrieben wird.
+Die Widerstände der Thermistoren können durch ein Multimeter oder eine Wheatstonebrücke (ebenfalls s.u.) bestimmt werden.
 
 \subsection{Thermistoren}
-Ein Thermistor ist ein Temperaturabhängiger Widerstand.
-Diese Abhängigkeit muss vorher bestimmt werden um aus den Widerständen Temperaturen zu errechnen.
-Die hier verwendeten Thermistoren sind sogenannte Heißleiter, also Widerstände bei denen der Widerstand bei steigenden Temperaturen fällt (NTC-Widerstände).
+Ein Thermistor ist ein temperaturabhängiger Widerstand.
+Diese Abhängigkeit muss vorher bestimmt werden um aus dem gemessenen Widerstand die Temperatur zurückzurechnen.
+Die hier verwendeten Thermistoren sind sogenannte Heißleiter, also Widerstände die mit steigenden Temperaturen geringer werden (NTC-Widerstände).
 
 \subsection{Wheatstonebrücke}
-Eine Wheatstonebrücke ist eine Schaltung, bei der durch mehrere Widerstände und der Messung einer Spannung ein Widerstand bestimmt werden kann.
-Eine repräsentative Schaltung kann in der Abbildung \ref{fig:wheat} eingesehen werden.
+Eine Wheatstonebrücke ist eine Schaltung, bei der durch mehrere bekannte Widerstände und der Messung einer Spannung ein Widerstand bestimmt werden kann.
+Ein Schaltplan kann in der Abbildung \ref{fig:wheat} eingesehen werden.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.5\textwidth]{Wheatstone.png}
 \caption{Schaltung einer Wheatstonebrücke.\protect\footnotemark}
 \label{fig:wheat}
 \end{figure}
-\footnotetext{\url{https://en.wikipedia.org/w/index.php?title=Wheatstone_bridge&oldid=819699391} vom 01.02.2018 11:34}
+\footnotetext{\url{https://commons.wikimedia.org/wiki/File:Wheatstonebridge.svg} vom 01.06.2018 10:40}
 
 Die Widerstände $R_1$ und $R_3$ sind bekannt.
 Das Potentiometer $R_2$ wird zur Eichung der Brücke verwendet und der unbekannte Widerstand $R_x=R_{th}$ ist der Thermistor.
-Ist die Brücke abgeglichen, sprich die Spannung $V_G=0$, so gilt für die Widerstände
+Ist die Brücke abgeglichen, sprich die Spannung $V_G=0$, so kann man unter Zuhilfe der Kirchhoffschen Knoten- und Maschen-Regeln nachrechnen, dass gilt
 \begin{align*}
-	\frac{R_3}{R_1}=\frac{R_{th}}{R_2}. %das ist glaube ich Falsch
+	\frac{R_3}{R_1}=\frac{R_{th}}{R_2}\quad.
 \end{align*}
-%weiter beschreiben
 
-%Niquist Shannen Theorem erklären
+\subsection{Nyquist-Shannon-Abtasttheorem}
+Das \textsc{Nyquist-Shannon}-Abtasttheorem besagt, dass man zur korrekten Rekonstruktion eines Signals $S$ dieses mit mehr als der doppelten maximal darin vorkommenden Frequenz $f_{\text{max, }S}$ messen muss.
+Andernfalls kann es zu sogenannten „Sampling-Effekten“ kommen, bei denen das Rekonstruierte Signal eine deutlich geringere Frequenz aufweist, als das tatsächliche.
+Dieses ist in Grafik \ref{fig:nyquist} gut zu erkennen.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\linewidth]{nyquist}
+  \caption{Beispiel, weshalb eine geringere Messfrequenz als $2f_{\text{max, }S}$ nicht ausreichend ist.\protect\footnotemark\label{fig:nyquist}}
+\end{figure}
+\footnotetext{\url{https://commons.wikimedia.org/wiki/File:Nyquist_Aliasing.svg} vom 17.06.2018 14:45}
 
 \subsection{Spektrum einer Zeitserie und Korellation}
 %erklären
-
+<++++++++++++++++++++++++++++++++++ERKLÄREN++++++++++++++++++++++++++++++++++>
 
 \newpage
 \section{Ergebnisse}
@@ -580,12 +593,12 @@ Ist die Brücke abgeglichen, sprich die Spannung $V_G=0$, so gilt für die Wider
 
 \subsection{Schattenprojektion}
 \label{sec:schatte}
-Mithilfe einer Schattenprojektion kann Bewegung im Fluid sichtbar gemacht werden.
-Zu erkennen sind Dichte unterschiede, welche insbesondere and rapide auf- und absteigenden Plumes zu erkennen ist, da dort die unterschiede größer sind.
-Um die Geschwindigkeit der Plumes zu bestimmen wird deren Bewegung auf einem Schirm beobachtet und die laufzeit zwischen vorher festgelegten punkten gemessen.
-Die lauflänge auf den Schirm muss noch mithilfe des Strahlensatzes umgerechnet werden um die korrekte Strecke zu erhalten.\\
-Um die Position der Plumes in der Zelle genauer einschränken zu können wird orthogonal zur ersten Richtung erneut gemessen.
-Mit dieser Methode lässt sich einschränken in welchem Quadranten die Plumes auf und absteigen.
+Bei einer Schattenprojektion wird ein Fluid mittels einer hellen Lampe angestrahlt und hinter dem Fluid wird ein Schirm beobachtet.
+Durch diesen Aufbau sind Dichteunterschiede erkennbar, da sie in Brechungsindex-Variationen resultieren, welche dann zu helleren bzw. dunkleren Regionen auf dem Schirm führen.
+Um die Geschwindigkeit der Plumes zu bestimmen wird die Bewegung ihrer Schatten auf einem Schirm beobachtet und die Laufzeit durch bestimmte Abstände gemessen.
+Die gemessene Lauflänge der Schatten auf den Schirm muss noch mithilfe des Strahlensatzes umgerechnet werden um die korrekte Strecke, welche die Plumes tatsächich durchlaufen haben, zu erhalten.\\
+Um die Position der Plumes in der Zelle genauer bestimmen zu können wird orthogonal zur ersten Richtung ein zweites Mal gemessen.
+Dadurch lässt sich ermitteln, in welchem Quadranten die Plumes auf und absteigen.
 %Skizze der von uns gemessenen quadranten
 \\
 %Tabelle der Daten mit Fehlern und Raynolds Zahl
