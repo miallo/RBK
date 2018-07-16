@@ -599,7 +599,7 @@ Um die Geschwindigkeit der Plumes zu bestimmen wird die Bewegung ihrer Schatten 
 Die gemessene Lauflänge der Schatten auf den Schirm muss noch mithilfe des Strahlensatzes umgerechnet werden um die korrekte Strecke, welche die Plumes tatsächich durchlaufen haben, zu erhalten.\\
 Um die Position der Plumes in der Zelle genauer bestimmen zu können wird orthogonal zur ersten Richtung ein zweites Mal gemessen.
 Dadurch lässt sich ermitteln, in welchem Quadranten die Plumes auf und absteigen.
-%Skizze der von uns gemessenen quadranten
+%Skizze der von uns gemessenen Quadranten
 \\
 %Tabelle der Daten mit Fehlern und Raynolds Zahl
 
@@ -609,10 +609,27 @@ Dadurch lässt sich ermitteln, in welchem Quadranten die Plumes auf und absteige
 
 \begin{figure}[!ht]
 \centering
-\includegraphics{stoer.png}
-\caption{Störfrequenz Messung}
+\includegraphics[width=0.8\textwidth]{stoer.png}
+\caption{Spektrum der Störfrequenz-Messung in der Mitte der Zelle mit einer Messfrequenz von $250\si{\hertz}$. Die größte Störfrequenz von $50\si{\hertz}$, welche der Netzspannungsfrequenz entspricht, ist klar erkennbar.}
 \label{fig:stoer}
 \end{figure}
+
+Da jede Messung natürlich externe Störsignale beeinflusst wird, maßen wir einige Minuten im Zentrum der Zelle mit $\SI{250}\hertz$.
+In Abb. \ref{fig:stoer} sind die gemessenen Frequenzen aufgetragen.
+Deutlich zu erkennen ist die Netzfrequenz bei $50\si{\hertz}$.
+Desweiteren sind auch die harmonischen (vielfachen) dieser Frequenz zu erkennen, allerdings am besten bei $200\si{\hertz}$.\\
+Unterhalb von etwa $10\si{\hertz}$ ist starkes Rauschen im zeitlichen Signal sichtbar.
+Zudem sind einige kleinere weitere Linien im Spektrum erkennbar, welche beispielsweise von den internen Frequenzen der umliegenden Geräten stammen könnten.
+
+Das Aliazing ist ein Effekt, der nach dem Shannon-Nyquist-Abtasttheorem zustande kommt, wenn die zu messende Frequenz nicht mit mehr als der doppelten Frequenz gesamplet wird.
+Dann kann es dazu kommen, dass eine hohe Frequenz durch samplen in verschiedenen Zyklen im Signal von einer viel geringeren Frequenz ununterscheidbar ist.
+Um dies zu unterdrücken muss eine Messfrequenz $f_s$ bestimmt werden bei der diese Störfrequenzern durch den Aliasing Effekt nicht übermäßig im verwendeten Teil des Spektrums auftreten.
+Die sogenannte \textit{Aliazing Frequenz} $f_a$, welche der gemessenen Frequenz eines eigentlich wesentlich höherfrequenten Signals $f$ entspricht, berechnet sich aus
+\begin{align}
+  f_a=|f-n\cdot f_s|\quad,
+  \label{eq:stoerfreq}
+\end{align}
+da negative Frequenzen durch die Symmetrie des Kosinus auch auf die positive Achse gespiegelt werden können (oder anders: es kommt nur auf die absolute Differeinz der Signale an)
 
 
 
