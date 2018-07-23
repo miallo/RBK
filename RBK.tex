@@ -631,36 +631,40 @@ Die sogenannte \textit{Aliazing Frequenz} $f_a$, welche der gemessenen Frequenz 
 \end{align}
 da negative Frequenzen durch die Symmetrie des Kosinus auch auf die positive Achse gespiegelt werden können (oder anders: es kommt nur auf die absolute Differeinz der Signale an)
 
-Will man nun die Störfrequenzen in dem gemessenen Signal minimieren, so muss man die Messfrequenz so wählen, dass die Summe über alle Amplituden der Referenzmessung
+Will man nun den Einfluss der Störfrequenzen in dem gemessenen Signal minimieren, so muss man die Messfrequenz so wählen, dass
 \begin{align}
   \sum_{f_\text{ref}} |I(f)-I(f_\text{ref})|
 \end{align}
 minimal wird.
 
+Bei uns war dies bei etwa $\SI{9.1}\hertz$ der Fall.
 
 \subsection{Geschwindigkeits- und Temperaturprofil}
 \label{sec:profile}
-
+In Grafik \ref{fig:T_fahrt} ist das höhenabhängige Temperaturprofil im Zentrum der Zelle aufgetragen.
+Dabei stellt die rote Kurve den Mittelwert dar und der blaue Bereich zeigt die zeitliche Standardabweichung an.
+Deutlich zu erkennen ist die Grenzschicht an der unteren Heizplatte.
+In ihr ist auch die Standardabweichung gering, was darauf schließen lässt, dass das Fluid dort kaum turbulent ist und so thermisch stabil (was aufgrund der Theorie auch so zu erwarten ist).
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\textwidth]{T_fahrt.png}
-\caption{Gemessenes Temperatur profil}
+\caption{Gemessenes Temperaturprofil}
 \label{fig:T_fahrt}
 \end{figure}
 
 
-\subsection{Numerische Profile und Daten}
+\subsection{Simulierte Profile und Daten}
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\textwidth]{V.png}
-\caption{Geschwindigkeits profile}
+\caption{Geschwindigkeitsprofile}
 \label{fig:v_num}
 \end{figure}
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\textwidth]{T.png}
-\caption{Temperatur profile}
+\caption{Temperaturprofile}
 \label{fig:t_num}
 \end{figure}
 
