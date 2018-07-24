@@ -583,15 +583,21 @@ Dieses ist in Grafik \ref{fig:nyquist} gut zu erkennen.
 \end{figure}
 \footnotetext{\url{https://commons.wikimedia.org/wiki/File:Nyquist_Aliasing.svg} vom 17.06.2018 14:45}
 
-\subsection{Spektrum einer Zeitserie und Korellation}
-Nimmt man eine Zeitserie der Temperatur an einem Ort auf, so kann man aus dem fouriertransformierten Signal die frequenzen bestimmen, mit der Temperaturschwankingen auftreten.
+\subsection{Spektrum einer Zeitserie und Korrelation}
+Das Spektrum eines Signales beschreibt, welche Frequenzen in ihm vorkommen.
+Nimmt man eine Zeitserie der Temperatur an einem Ort auf, so entspricht das fouriertransformierte Signal den Frequenzen mit der Temperaturschwankungen auftreten.
 Diese kommen durch Plumes zustande.
 
 Möchte man nun deren Geschwindigkeit messen, so bietet es sich an, eine Thermistor-Kette zu nehmen und mit ihr eine Langzeitmessung zu machen.
-Korelliert man die Daten benachbarter Thermistoren miteinander, so kann man mittels ihres Abstandes und des Maximums in der Korellation die mittlere Geschwindigkeit der Plumes feststellen.
-Natürlich gibt es keine perfekte Korellation, da sich die Form der Plumes während des Aufsteigens verändert.
-
-<++++++++++++++++++++++++++++++++++ERKLÄREN++++++++++++++++++++++++++++++++++>
+Korreliert man die Daten benachbarter Thermistoren miteinander, so kann man mittels ihres Abstandes und des Maximums in der Korrelation die mittlere Geschwindigkeit der Plumes feststellen.
+Natürlich gibt es keine perfekte Korrelation, da sich die Form der Plumes während des Aufsteigens verändert.
+Sie berechnet sich aus der Faltung der beiden Signale:
+\begin{align}
+	(f*g)(t)=\int f(\tau)g(t-\tau) d\tau\quad.
+	\label{eq:faltung}
+\end{align}
+Das Maximum in der Kurve gibt nun an, mit welche Abstand die meisten Daten an den beiden Thermistoren vorbeikamen.
+<+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++>
 
 \newpage
 \section{Ergebnisse}
@@ -602,7 +608,7 @@ Natürlich gibt es keine perfekte Korellation, da sich die Form der Plumes währ
 Bei einer Schattenprojektion wird ein Fluid mittels einer hellen Lampe angestrahlt und hinter dem Fluid wird ein Schirm beobachtet.
 Durch diesen Aufbau sind Dichteunterschiede erkennbar, da sie in Brechungsindex-Variationen resultieren, welche dann zu helleren bzw. dunkleren Regionen auf dem Schirm führen.
 Um die Geschwindigkeit der Plumes zu bestimmen wird die Bewegung ihrer Schatten auf einem Schirm beobachtet und die Laufzeit durch bestimmte Abstände gemessen.
-Die gemessene Lauflänge der Schatten auf den Schirm muss noch mithilfe des Strahlensatzes umgerechnet werden um die korrekte Strecke, welche die Plumes tatsächich durchlaufen haben, zu erhalten.\\
+Die gemessene Lauflänge der Schatten auf den Schirm muss noch mithilfe des Strahlensatzes umgerechnet werden um die korrekte Strecke, welche die Plumes tatsächlich durchlaufen haben, zu erhalten.\\
 
 Um die Position der Plumes in der Zelle genauer bestimmen zu können wird orthogonal zur ersten Richtung ein zweites Mal gemessen.
 Dadurch lässt sich ermitteln, in welchem Quadranten die Plumes auf und absteigen.
@@ -628,15 +634,15 @@ Desweiteren sind auch die harmonischen (vielfachen) dieser Frequenz zu erkennen,
 Unterhalb von etwa $10\si{\hertz}$ ist starkes Rauschen im zeitlichen Signal sichtbar.
 Zudem sind einige kleinere weitere Linien im Spektrum erkennbar, welche beispielsweise von den internen Frequenzen der umliegenden Geräten stammen könnten.
 
-Das Aliazing ist ein Effekt, der nach dem Shannon-Nyquist-Abtasttheorem zustande kommt, wenn die zu messende Frequenz nicht mit mehr als der doppelten Frequenz gesamplet wird.
-Dann kann es dazu kommen, dass eine hohe Frequenz durch samplen in verschiedenen Zyklen im Signal von einer viel geringeren Frequenz ununterscheidbar ist.
+Das Aliasing ist ein Effekt, der nach dem Shannon-Nyquist-Abtasttheorem zustande kommt, wenn die zu messende Frequenz nicht mit mehr als der doppelten Frequenz gesamplet wird.
+Dann kann es dazu kommen, dass eine hohe Frequenz durch Samplen in verschiedenen Zyklen im Signal von einer viel geringeren Frequenz ununterscheidbar ist.
 Um dies zu unterdrücken muss eine Messfrequenz $f_s$ bestimmt werden bei der diese Störfrequenzern durch den Aliasing Effekt nicht übermäßig im verwendeten Teil des Spektrums auftreten.
-Die sogenannte \textit{Aliazing Frequenz} $f_a$, welche der gemessenen Frequenz eines eigentlich wesentlich höherfrequenten Signals $f$ entspricht, berechnet sich aus
+Die sogenannte \textit{Aliasing Frequenz} $f_a$, welche der gemessenen Frequenz eines eigentlich wesentlich höherfrequenten Signals $f$ entspricht, berechnet sich aus
 \begin{align}
   f_a=|f-n\cdot f_s|\quad,
   \label{eq:stoerfreq}
 \end{align}
-da negative Frequenzen durch die Symmetrie des Kosinus auch auf die positive Achse gespiegelt werden können (oder anders: es kommt nur auf die absolute Differeinz der Signale an)
+da negative Frequenzen durch die Symmetrie des Kosinus auch auf die positive Achse gespiegelt werden können (oder anders: es kommt nur auf die absolute Differenz der Signale an)
 
 Will man nun den Einfluss der Störfrequenzen in dem gemessenen Signal minimieren, so muss man die Messfrequenz so wählen, dass
 \begin{align}
@@ -686,7 +692,7 @@ In ihr ist auch die Standardabweichung gering, was darauf schließen lässt, das
 
 
 
-\subsection{Korellation}
+\subsection{Korrelation}
 
 \begin{figure}[!ht]
 \centering
