@@ -430,7 +430,7 @@ Die Konstante $\alpha$ der Ausdehnungskoeffizient, $\vec{g}=g\hat{e}_z$ die Erdb
 Die für die Lösung des Gleichungssystemes benötigen Randbedingungen der Geschwindigkeit sind feste Ränder, bzw. $\vec{v}=0$ am Rand.
 Die Temperatur am unteren und oberen Rand bei $z=0,L$ ist durch Heiz- bzw. Kühlelemente bestimmt ($L$ bezeichnet die Höhe der Zelle).
 Am unteren Rand liegt die Temperatur $T(z=0)=T_0$ und am oberen die Temperatur $T(z=L)=T_0-\Delta T$ an.
-Um RBK zu erhalten muss $\Delta T\geq0$ gelten.
+Um RBK zu erhalten muss $\Delta T\geq0$ gelten, da nur so die Dichte des Fluids an der unteren Platte herabgesetzt wird.
 
 Bei dem Aufstellen der Gleichungen wurde von einem inkompressiblen Fluid ausgegangen.
 Allerdings wird für den Auftriebsterm in der Navier-Stokes-Gleichung \eqref{eq:nast} angenommen, dass sich die Dichte leicht mit der Temperatur variiert und somit eine lineare
@@ -443,13 +443,13 @@ Diese Näherung ist auch als \textsc{Boussinesq}-Näherung bekannt.
 Zur besseren Vergleichbarkeit von verschiedenen Experimenten wird eine Entdimensionalisierung durchgeführt.
 Dazu werden alle vorkommenden Konstanten und Variablen in Abhängigkeit von charakteristischen Größen des Versuchs ausgedrückt.
 Z.B. Ortsvektoren in Einheiten der Höhe $\vec{r}=\vec{r'} L$, Zeiten in Einheiten der Höhe und Viskosität $t=t' \frac{L^2}{\nu}$ und Geschwindigkeiten in Einheiten des Orts und der Zeit $\vec{v}=\vec{v'}\frac{\nu}{L}$.
-Die mit $'$ versehenen Variablen sind die jeweiligen dimensionslosen Variablen, bei welchen im Folgenden zur besseren Lesbarkeit die $'$ weggelassen werden.
+Mit $'$ versehenen Variablen sind die korrespondierenden dimensionslosen Variablen, wobei im Folgenden der \"Ubersichtlichkeit halber die $'$ in der Notation ausgelassen werden.
 
 Somit lässt sich die Navier-Stokes-Gleichung auch zu
 \begin{align}
 	\frac{\partial \vec{v}}{\partial t}+\left( \vec{v}\cdot\nabla \right)\vec{v} &= -\nabla p + Pr\nabla^2\vec{v}+PrRaT\hat{e}_z
 \end{align}
-umformen, wobei der Druck hier nur die Rolle eines Potentiales hat, das die Divergenzfreiheit gewährleistet.
+umformen, wobei der Druck hier nur die Rolle eines Potentiales hat, welches die Divergenzfreiheit gewährleistet.
 Die anderen Gleichungen haben jeweils die gleiche Form.
 Zu erkennen ist, dass es zwei dimensionslose Parameter gibt:
 Die Prandtl-Zahl
@@ -460,7 +460,7 @@ welche das Verhältnis von viskoser zu thermischer Diffusion beschreibt.
 Sie hängt offensichtlich nur von Fluid- und nicht von Experiment-Eigenschaften ab.
 Die zweite ist die Rayleigh-Zahl
 \begin{align}
-	Ra=\frac{g\alpha\Delta T L^3}{\kappa\nu}.\label{eq:Ra}
+	Ra=\frac{g\alpha\Delta T L^3}{\kappa\nu}\quad.\label{eq:Ra}
 \end{align}
 welche das Verhältnis von thermischem Ausgleich durch Auftrieb zu dem durch thermische Diffusion ist.
 Es gibt einen kritischen Wert $Ra_\text{crit}$ ab dem der thermische Ausgleich von reiner Diffusion zu einer zusätzlichen advektiven Bewegung wechselt.
@@ -476,8 +476,7 @@ Zur Beschreibung des Wärmetransportes wird die Nusselt-Zahl
 verwendet.
 Diese ist unterhalb der kritischen Rayleigh-Zahl $Nu=1$, da hier ausschließlich diffusiver Transport stattfindet.
 Oberhalb dieser steigt $Nu$ kontinuierlich an, da die Wärme zunehmend durch Konvektion transportiert wird.
-Aufgrund der Randbedingung der Geschwindigkeit gibt es an den Rändern keine Advektion.
-Es muss sich also eine diffusive Randschicht ausbilden.
+Aufgrund der Randbedingung der Geschwindigkeit gibt es an den Rändern keine Advektion, wesshalb sich also eine diffusive Randschicht ausbildet.
 Ist die Advektion im Inneren der Zelle ausreichend groß, so wird dort keine Wärme mehr diffusiv übertragen und somit nimmt die Dicke der thermischen Grenzschicht $\delta$ ab.
 Aus einfachen Überlegungen lässt sich schnell nachvollziehen, dass für die Nusselt-Zahl in erster Näherung gilt
 \begin{align}
@@ -486,11 +485,11 @@ Aus einfachen Überlegungen lässt sich schnell nachvollziehen, dass für die Nu
 Eine weitergehende Beschreibung der Nusselt-Zahl und möglicher Abhängigkeiten zu den anderen Parameters kann im Buch von J.S. Turner \cite{Bef} in den Kapiteln 7.1.1, 7.1.3 und 7.3.1 nachgelesen werden.
 %Bild des Temperaturprofils aus der Simulation
 
-\subsection{Bewegungsformen und Profile}
+\subsection{Plumes - Bewegungsformen und Profile}
 Bisher wurden nur über lange Zeiträume gemittelte Effekte näher betrachtet.
 Es stellt sich jedoch heraus, dass es auch spontane, die Symmetrie brechende Effekte gibt, beispielsweise Plumes.
 Plumes sind durch Dichteunterschiede auftretende Strömungen, welche von einer Auftriebsquelle ausgehen.
-Sie sind ähnlich zu einem Jet, allerdings sind diese verursacht durch einen innitialen Geschwindigkeitsunterschied.
+Sie sind ähnlich zu einem Jet, allerdings sind diese verursacht durch einen initialen Geschwindigkeitsunterschied.
 Eine schematische Darstellung eines Plumes ist in der Abbildung \ref{fig:plume} zu sehen.
 \begin{figure}[!ht]
 \centering
@@ -498,19 +497,20 @@ Eine schematische Darstellung eines Plumes ist in der Abbildung \ref{fig:plume} 
 \caption{Schema eines Mantelplumes.\protect\footnotemark Der untere Teil des Plumes besteht aus einer auftriebsgetriebenen Aufströmung, welche oben an der Grenze des Mantels eine pilzkopfartige Form annimmt. An dem Ort des Auftreffens steigt die Warscheinlichkeit vukanischer Aktivität.}
 \label{fig:plume}
 \end{figure}
-\footnotetext{\url{https://de.wikipedia.org/w/index.php?title=Plume_\%28Geologie\%29\&oldid=168415045} vom 02.03.2018 13:30}
+\footnotetext{\url{https://commons.wikimedia.org/wiki/File:Plume-schematisch.png} vom 05.06.2018 11:30}
 Mantelplumes (Plumes im Erdmantel) sind eine Quelle für vulkanische Aktivität.
 Häufig gut zu beobachten sind sie an den Schornsteinen von großen Kraftwerken: Man sieht dort häufig kleine „Wolkenstöße“ nacheinander kommen.
 Dieses Phänomen kann man auch in Abb. \ref{fig:bromo_plumes} sehen, wo sich die Plumes deutlich in den Abgasen des Vulkans \textit{Mount Bromo} erkennen lassen.
-\begin{figure}[h]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.4\linewidth]{bromo_plumes}
-  \caption{Plumes sichtbar am Beispiel des Mount Bromo (10.1.2017). Gut erkennbar sind die vielen kleinen pilzkopfartigen Dampfbüschel.\label{fig:bromo_plumes}}
+  \caption{Plumes sichtbar am Beispiel des Mount Bromo (10.1.2017). Gut erkennbar sind die vielen kleinen pilzkopfartigen Dampfbüschel.}
+  \label{fig:bromo_plumes}
 \end{figure}
 
 \subsection{Large Scale Circulation}
 Die großräumige Zirkulation (Large Scale Circulation, LSC), welche durch Reibungseffekte kontinuierlich abgebremst wird, wird durch zeitlich und räumlich statistisch auftretende Plumes angetrieben.
-Die möglichen Formen der LSC sind sehr vielfältig und können zum Beispiel hexagonal ode auch walzenförmig sein.
+Die möglichen Formen der LSC sind sehr vielfältig und können zum Beispiel hexagonal oder auch walzenförmig sein.
 Um diese Formen auch in sehr turbulenten Strömungen zu erkennen, muss das Geschwindigkeitsfeld zeitlich gemittelt werden. 
 Je kleiner die Rayleigh-Zahl, desto kleiner die Turbulenz und desto kürzer muss der Zeitraum der Mittelung sein, um LCS zu sehen.
 \begin{figure}[!ht]
@@ -700,11 +700,8 @@ In Abb. \ref{fig:v_num}
 \subsection{Langzeit- und Korrelationsmessung}
 In Abbildung \ref{fig:korrelation} sind die Korrelation zwischen den ersten beiden Thermistoren aufgetragen.
 Zu erkennen ist deutlich das Maximum bei $\SI{3.7}\s$.
-Ebenfalls kann man anhand der Kurve sehen, dass die Ausbildung von Plumes kein unabh\"angiger Vorgang ist.
-W\"are dies der Fall, so m\"usste die Korrelation f\"ur $t=0$ verschwinden.
-Es zeigt sich jedoch, dass der Wert nur $\approx20\%$ niedriger ist, als das Maximum.
-Da die Str\"omung jedoch der Kausalit\"at gen\"ugen muss, ist anzunehmen, dass die Korrelation daher stammt, dass ein sich bildender Plume die Bedingungen f\"ur die Entstehung des n\"achsten Plumes ver\"andert.
-Dadurch kann man nicht ohne Weiteres aus der Breite der Verteilung einen R\"uckschluss auf die Geschwindigkeitsverteilung der Plumes machen.
+Die Breite der Korrelation kann man nicht ohne weiteres auswerten, da dort noch zahlreiche Effekte herein spielen, wie die Entstehung eines Plumes beeinflusst die Bildung eines weiteren und noch wichtiger: ein Plume bildet in den Messdaten keinen $\delta$-Peak, sondern er ist in der Gr\"o{\ss}enordnung des Abstands der Thermistoren.
+Dadurch verschwindet die Korrelation nicht bei $t=0$ und die Breite des Peaks ist nicht nur durch die Geschwindigkeitsverteilung unterschiedlicher Plumes beeinflusst.
 
 \begin{figure}[!ht]
 	\centering
