@@ -91,21 +91,9 @@
 %   \caption{Beschriftung} 
 %   \label{fig:grafik}
 % \end{wrapfigure}
-% Mehrere Abbildungen nebeneinander
-% Beispiel:
-% \begin{figure}[htb]
-%   \centering
-%   \subfigure[Beschriftung 1\label{fig:label1}]
-%   {\includegraphics[width=0.49\textwidth]{grafik1}}
-%   \hfill
-%   \subfigure[Beschriftung 2\label{fig:label2}]
-%   {\includegraphics[width=0.49\textwidth]{grafik2}}
-%   \caption{Beschriftung allgemein}
-%   \label{fig:label-gesamt}
-% \end{figure}
 
-%Subfigure nur mit PDF statt Bildern einfügen:
 \usepackage{adjustbox}
+
 %\begin{figure}[h]
 %  \centering
 %  \subfigure[Caption1\label{fig:bild1}]
@@ -121,6 +109,7 @@
 %\end{figure}
 
 %\usepackage{subfigure}
+\usepackage{subcaption}
 
 
 
@@ -596,8 +585,14 @@ Sie berechnet sich aus der Faltung der beiden Signale:
 	(f*g)(t)=\int f(\tau)g(t-\tau) d\tau\quad.
 	\label{eq:faltung}
 \end{align}
-Das Maximum in der Kurve gibt nun an, mit welche Abstand die meisten Daten an den beiden Thermistoren vorbeikamen.
-<+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++>
+Das Maximum in der Kurve gibt nun an, mit welche Abstand die meisten Plumes an den beiden Thermistoren vorbeikamen.
+Da das Ausrechnen des Integrals f\"ur alle Zeiten $t$ sehr rechenintensiv ist, kann man stattdessen vom \textit{Faltungstheorem} gebrauch machen, welches besagt
+\begin{align}
+	\mathcal F(f*g)=\sqrt{2\pi}\mathcal F(f)\cdot\mathcal F(g)\quad.
+	\label{eq:faltungssatz}
+\end{align}
+Dadurch muss man nur noch das Produkt der Fouriertransformierten ausrechnen und das Ergebnis r\"ucktransformieren.
+
 
 \newpage
 \section{Ergebnisse}
@@ -667,18 +662,28 @@ In ihr ist auch die Standardabweichung gering, was darauf schließen lässt, das
 
 
 \subsection{Simulierte Profile und Daten}
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.8\textwidth]{V.png}
-\caption{Geschwindigkeitsprofile}
-\label{fig:v_num}
-\end{figure}
+Da die Konstruktion und Durchf\"uhrung von Experimenten mit unterschiedlichen Rayleigh-Zahlen aufw\"andig ist, greifen Experimentatoren in diesem Bereich gerne auf Simulationen zur\"uck.
+Allerdings steigt der Rechenaufwand f\"ur gro{\ss}e Rayleigh-Zahlen rasant an, so dass es irgendwann nicht mehr sinnvoll ist.
+Auch sind die hier durchgef\"uhrten Simulationen nur zweidimensional, wodurch bestimmte Effekte des Experiments nicht rekonstruiert werden k\"onnen.
+Dennoch stimmen die Ergebnisse im Allgemeinen gut mit den Messwerten \"uberein.\\
 
+In Abb. \ref{fig:v_num}
 \begin{figure}[!ht]
-\centering
-\includegraphics[width=0.8\textwidth]{T.png}
-\caption{Temperaturprofile}
-\label{fig:t_num}
+	\centering
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+	\includegraphics[width=0.9\linewidth]{V}
+        \caption{Geschwindigkeitsprofil}
+	\label{fig:v_num}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+	\includegraphics[width=0.9\linewidth]{T}
+        \caption{Temperaturprofil}
+	\label{fig:t_num}
+    \end{subfigure}
+    \caption{Simulationen f\"ur verschiedene Rayleigh-Zahlen.}
 \end{figure}
 
 \begin{figure}[!ht]
@@ -692,12 +697,31 @@ In ihr ist auch die Standardabweichung gering, was darauf schließen lässt, das
 
 
 
-\subsection{Korrelation}
+\subsection{Langzeit- und Korrelationsmessung}
+In Abbildung \ref{fig:korrelation} sind die Korrelation zwischen den ersten beiden Thermistoren aufgetragen.
+Zu erkennen ist deutlich das Maximum bei $\SI{3.7}\s$.
+Ebenfalls kann man anhand der Kurve sehen, dass die Ausbildung von Plumes kein unabh\"angiger Vorgang ist.
+W\"are dies der Fall, so m\"usste die Korrelation f\"ur $t=0$ verschwinden.
+Es zeigt sich jedoch, dass der Wert nur $\approx20\%$ niedriger ist, als das Maximum.
+Da die Str\"omung jedoch der Kausalit\"at gen\"ugen muss, ist anzunehmen, dass die Korrelation daher stammt, dass ein sich bildender Plume die Bedingungen f\"ur die Entstehung des n\"achsten Plumes ver\"andert.
+Dadurch kann man nicht ohne Weiteres aus der Breite der Verteilung einen R\"uckschluss auf die Geschwindigkeitsverteilung der Plumes machen.
 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{kor}
+\caption{Korrelation zwischen den Signalen der ersten beiden Thermistoren. Das Maximum befindet sich bei $3.7\si\s$}
+\label{fig:korrelation}
+\end{figure}
+
+
+Aus der Langzeitmessung kann man jedoch die Temperaturdaten f\"ur die einzelnen H\"ohen nutzen, um diese miteinander im Mittelwert zu vergleichen.
+Selbiges ist in Grafik \ref{fig:T_kor} aufgetragen.
+Zu sehen ist, dass die Standardabweichung sehr viel gr\"o{\ss}er ist, als die Schwankungen der Mittelwerte in verschiedenen H\"ohen.
+Dies steht im Einklang mit der Theorie, da die W\"arme ja im Inneren des Containers konvektiv an allen Thermistoren vorbeigeleitet wird, ohne dabei nennenswert Energie zu verlieren oder zu gewinnen.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\textwidth]{T_kor.png}
-\caption{Temperatur aus der Korrelatiionsmessung}
+\caption{Temperatur aus der Korrelationsmessung}
 \label{fig:T_kor}
 \end{figure}
 

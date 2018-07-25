@@ -8,9 +8,10 @@ from glob import glob
 
 def main():
     data = np.genfromtxt("Geschwindigkeit_notfallkorrelation.dat")
+    print data[np.argmax(data[:,1]),0], np.max(data[:,1])
     f,ax = plt.subplots()
     ax.plot(data[:,0],data[:,1],'r+-')
-    ax.set_xlabel(u"Höhe [m]")
+    ax.set_xlabel(u"Zeit [s]")
     ax.set_ylabel(r"Korrelation")
     f.savefig("kor.png",dpi=300,bbox_inches="tight")
     #plt.show()
