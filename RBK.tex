@@ -265,8 +265,8 @@
 
 %Um auch Umlaute in den Kommentaren auswerten zu können
 \lstset{
-literate = {Ö}{{\"O}}1 {Ä}{{\"A}}1 {Ü}{{\"U}}1 {ß}{{\ss}}2 {ü}{{\"u}}1
-           {ä}{{\"a}}1 {ö}{{\"o}}1
+literate = {Ö}{{\"O}}1 {Ä}{{\"A}}1 {Ü}{{\"U}}1 {ß}{{\ss}}2 {ü}{{ü}}1
+           {ä}{{ä}}1 {ö}{{ö}}1
 }
 
 %Formatierung des Quellcode
@@ -443,7 +443,7 @@ Diese Näherung ist auch als \textsc{Boussinesq}-Näherung bekannt.
 Zur besseren Vergleichbarkeit von verschiedenen Experimenten wird eine Entdimensionalisierung durchgeführt.
 Dazu werden alle vorkommenden Konstanten und Variablen in Abhängigkeit von charakteristischen Größen des Versuchs ausgedrückt.
 Z.B. Ortsvektoren in Einheiten der Höhe $\vec{r}=\vec{r'} L$, Zeiten in Einheiten der Höhe und Viskosität $t=t' \frac{L^2}{\nu}$ und Geschwindigkeiten in Einheiten des Orts und der Zeit $\vec{v}=\vec{v'}\frac{\nu}{L}$.
-Mit $'$ versehenen Variablen sind die korrespondierenden dimensionslosen Variablen, wobei im Folgenden der \"Ubersichtlichkeit halber die $'$ in der Notation ausgelassen werden.
+Mit $'$ versehenen Variablen sind die korrespondierenden dimensionslosen Variablen, wobei im Folgenden der Übersichtlichkeit halber die $'$ in der Notation ausgelassen werden.
 
 Somit lässt sich die Navier-Stokes-Gleichung auch zu
 \begin{align}
@@ -485,7 +485,7 @@ Aus einfachen Überlegungen lässt sich schnell nachvollziehen, dass für die Nu
 Eine weitergehende Beschreibung der Nusselt-Zahl und möglicher Abhängigkeiten zu den anderen Parameters kann im Buch von J.S. Turner \cite{Bef} in den Kapiteln 7.1.1, 7.1.3 und 7.3.1 nachgelesen werden.
 %Bild des Temperaturprofils aus der Simulation
 
-\subsection{Plumes - Bewegungsformen und Profile}
+\subsection{Plumes}
 Bisher wurden nur über lange Zeiträume gemittelte Effekte näher betrachtet.
 Es stellt sich jedoch heraus, dass es auch spontane, die Symmetrie brechende Effekte gibt, beispielsweise Plumes.
 Plumes sind durch Dichteunterschiede auftretende Strömungen, welche von einer Auftriebsquelle ausgehen.
@@ -509,7 +509,8 @@ Dieses Phänomen kann man auch in Abb. \ref{fig:bromo_plumes} sehen, wo sich die
 \end{figure}
 
 \subsection{Large Scale Circulation}
-Die großräumige Zirkulation (Large Scale Circulation, LSC), welche durch Reibungseffekte kontinuierlich abgebremst wird, wird durch zeitlich und räumlich statistisch auftretende Plumes angetrieben.
+Auf großen Zeit- und Längenskalen dominiert die großräumige Zirkulation (Large Scale Circulation, LSC).
+Sie wird durch Reibungseffekte kontinuierlich abgebremst, und durch zeitlich und räumlich statistisch auftretende Plumes im Mittel angetrieben.
 Die möglichen Formen der LSC sind sehr vielfältig und können zum Beispiel hexagonal oder auch walzenförmig sein.
 Um diese Formen auch in sehr turbulenten Strömungen zu erkennen, muss das Geschwindigkeitsfeld zeitlich gemittelt werden. 
 Je kleiner die Rayleigh-Zahl, desto kleiner die Turbulenz und desto kürzer muss der Zeitraum der Mittelung sein, um LCS zu sehen.
@@ -522,7 +523,7 @@ Je kleiner die Rayleigh-Zahl, desto kleiner die Turbulenz und desto kürzer muss
 
 Wie häufig ein Plume entsteht und wie stark er (im stochastischen Mittel) eine LSC antreibt hängt von der Rayleigh-Zahl ab und spiegelt sich im Turbulenzgrad wieder.
 Diese Plumes sind gut zu messen, da sie einen deutlichen Temperatur- und damit und Dichte-Unterschied zur Umgebung aufweisen.
-Hierauf wird in den Kapiteln \ref{sec:schatte} und \ref{sec:profile} näher eingegangen.
+Hierauf wird in den Kapiteln \ref{sec:schattenproj} und \ref{sec:profile} näher eingegangen.
 
 \newpage
 \section{Experiment und Setup}
@@ -540,7 +541,7 @@ Die Widerstände der Thermistoren können durch ein Multimeter oder eine Wheatst
 
 \subsection{Thermistoren}
 Ein Thermistor ist ein temperaturabhängiger Widerstand.
-Diese Abhängigkeit muss vorher bestimmt werden um aus dem gemessenen Widerstand die Temperatur zurückzurechnen.
+Ist diese Abhängigkeit bekannt, so kann aus dem gemessenen Widerstand die Temperatur zurückgerechnet werden.
 Die hier verwendeten Thermistoren sind sogenannte Heißleiter, also Widerstände die mit steigenden Temperaturen geringer werden (NTC-Widerstände).
 
 \subsection{Wheatstonebrücke}
@@ -558,8 +559,15 @@ Die Widerstände $R_1$ und $R_3$ sind bekannt.
 Das Potentiometer $R_2$ wird zur Eichung der Brücke verwendet und der unbekannte Widerstand $R_x=R_{th}$ ist der Thermistor.
 Ist die Brücke abgeglichen, sprich die Spannung $V_G=0$, so kann man unter Zuhilfe der Kirchhoffschen Knoten- und Maschen-Regeln nachrechnen, dass gilt
 \begin{align*}
-	\frac{R_3}{R_1}=\frac{R_{th}}{R_2}\quad.
+	\frac{R_3}{R_1}=\frac{R_x}{R_2}\quad.
 \end{align*}
+
+Ändert sich der Widerstand $R_1\rightarrow R_1+\Delta R$, so kann durch Nachrechnen der Kirchhoffschen Knoten- und Maschenregel folgende Identität für das Spannungsverhältnis hergeleitet werden:
+\begin{align}
+	\frac{U_5}{U}=\frac{1+v}{1+v+k}-\frac{1}{1+k}\quad.
+	\label{eq:spannungsveraeltnis}
+\end{align}
+Dabei bezeichnet $v=\frac{\Delta R_1}{R_1}$ die Verstimmung und $k=\frac{R_2}{R_1}=\frac{R_x}{R_3}$ das Brückenverhältnis.
 
 \subsection{Nyquist-Shannon-Abtasttheorem}
 Das \textsc{Nyquist-Shannon}-Abtasttheorem besagt, dass man zur korrekten Rekonstruktion eines Signals $S$ dieses mit mehr als der doppelten maximal darin vorkommenden Frequenz $f_{\text{max, }S}$ messen muss.
@@ -586,12 +594,12 @@ Sie berechnet sich aus der Faltung der beiden Signale:
 	\label{eq:faltung}
 \end{align}
 Das Maximum in der Kurve gibt nun an, mit welche Abstand die meisten Plumes an den beiden Thermistoren vorbeikamen.
-Da das Ausrechnen des Integrals f\"ur alle Zeiten $t$ sehr rechenintensiv ist, kann man stattdessen vom \textit{Faltungstheorem} gebrauch machen, welches besagt
+Da das Ausrechnen des Integrals für alle Zeiten $t$ sehr rechenintensiv ist, kann man stattdessen vom \textit{Faltungstheorem} gebrauch machen, welches besagt
 \begin{align}
 	\mathcal F(f*g)=\sqrt{2\pi}\mathcal F(f)\cdot\mathcal F(g)\quad.
 	\label{eq:faltungssatz}
 \end{align}
-Dadurch muss man nur noch das Produkt der Fouriertransformierten ausrechnen und das Ergebnis r\"ucktransformieren.
+Dadurch muss man nur noch das Produkt der Fouriertransformierten ausrechnen und das Ergebnis rücktransformieren.
 
 
 \newpage
@@ -599,7 +607,7 @@ Dadurch muss man nur noch das Produkt der Fouriertransformierten ausrechnen und 
 \label{sec:auswertung}
 
 \subsection{Schattenprojektion}
-\label{sec:schatte}
+\label{sec:schattenproj}
 Bei einer Schattenprojektion wird ein Fluid mittels einer hellen Lampe angestrahlt und hinter dem Fluid wird ein Schirm beobachtet.
 Durch diesen Aufbau sind Dichteunterschiede erkennbar, da sie in Brechungsindex-Variationen resultieren, welche dann zu helleren bzw. dunkleren Regionen auf dem Schirm führen.
 Um die Geschwindigkeit der Plumes zu bestimmen wird die Bewegung ihrer Schatten auf einem Schirm beobachtet und die Laufzeit durch bestimmte Abstände gemessen.
@@ -662,12 +670,12 @@ In ihr ist auch die Standardabweichung gering, was darauf schließen lässt, das
 
 
 \subsection{Simulierte Profile und Daten}
-Da die Konstruktion und Durchf\"uhrung von Experimenten mit unterschiedlichen Rayleigh-Zahlen aufw\"andig ist, greifen Experimentatoren in diesem Bereich gerne auf Simulationen zur\"uck.
-Allerdings steigt der Rechenaufwand f\"ur gro{\ss}e Rayleigh-Zahlen rasant an, so dass es irgendwann nicht mehr sinnvoll ist.
-Auch sind die hier durchgef\"uhrten Simulationen nur zweidimensional, wodurch bestimmte Effekte des Experiments nicht rekonstruiert werden k\"onnen.
-Dennoch stimmen die Ergebnisse im Allgemeinen gut mit den Messwerten \"uberein.\\
+Da die Konstruktion und Durchführung von Experimenten mit unterschiedlichen Rayleigh-Zahlen aufwändig ist, greifen Experimentatoren in diesem Bereich gerne auf Simulationen zurück.
+Allerdings steigt der Rechenaufwand für große Rayleigh-Zahlen rasant an, so dass es irgendwann nicht mehr sinnvoll ist.
+Auch sind die hier durchgeführten Simulationen nur zweidimensional, wodurch bestimmte Effekte des Experiments nicht rekonstruiert werden können.
+Dennoch stimmen die Ergebnisse im Allgemeinen gut mit den Messwerten überein.\\
 
-In Abb. \ref{fig:v_num}
+In Abb. \ref{fig:v_num} <++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++>
 \begin{figure}[!ht]
 	\centering
     \begin{subfigure}[t]{0.49\textwidth}
@@ -683,7 +691,7 @@ In Abb. \ref{fig:v_num}
         \caption{Temperaturprofil}
 	\label{fig:t_num}
     \end{subfigure}
-    \caption{Simulationen f\"ur verschiedene Rayleigh-Zahlen.}
+    \caption{Simulationen für verschiedene Rayleigh-Zahlen.}
 \end{figure}
 
 \begin{figure}[!ht]
@@ -698,23 +706,26 @@ In Abb. \ref{fig:v_num}
 
 
 \subsection{Langzeit- und Korrelationsmessung}
-In Abbildung \ref{fig:korrelation} sind die Korrelation zwischen den ersten beiden Thermistoren aufgetragen.
-Zu erkennen ist deutlich das Maximum bei $\SI{3.7}\s$.
-Die Breite der Korrelation kann man nicht ohne weiteres auswerten, da dort noch zahlreiche Effekte herein spielen, wie die Entstehung eines Plumes beeinflusst die Bildung eines weiteren und noch wichtiger: ein Plume bildet in den Messdaten keinen $\delta$-Peak, sondern er ist in der Gr\"o{\ss}enordnung des Abstands der Thermistoren.
+In Abbildung \ref{fig:korrelation} ist die Korrelation zwischen aufeinanderfolgenden Thermistoren aufgetragen.
+Zu erkennen ist deutlich, dass die Maxima nicht an der selben Position sind.
+Dies ist auch in Figure \ref{fig:V_kor} zu erkennen, in der die Geschwindigkeiten (basierend auf der Peak-Position) aufgetragen sind.
+Dabei ist zu beachten, dass die Thermistoren nicht äquidistant sind.\\
+
+Die Breite der Korrelation kann man nicht ohne weiteres auswerten, da dort noch zahlreiche Effekte herein spielen, wie die Entstehung eines Plumes beeinflusst die Bildung eines weiteren und noch wichtiger: ein Plume bildet in den Messdaten keinen $\delta$-Peak, sondern er ist in der Größenordnung des Abstands der Thermistoren.
 Dadurch verschwindet die Korrelation nicht bei $t=0$ und die Breite des Peaks ist nicht nur durch die Geschwindigkeitsverteilung unterschiedlicher Plumes beeinflusst.
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\linewidth]{kor}
-\caption{Korrelation zwischen den Signalen der ersten beiden Thermistoren. Das Maximum befindet sich bei $3.7\si\s$}
+	\caption{Korrelation zwischen den Signalen aufeinanderfolgender Thermistoren. Die Maxima befinden sich zwischen $3.7$ und $6.2\si\s$.}
 \label{fig:korrelation}
 \end{figure}
 
 
-Aus der Langzeitmessung kann man jedoch die Temperaturdaten f\"ur die einzelnen H\"ohen nutzen, um diese miteinander im Mittelwert zu vergleichen.
+Aus der Langzeitmessung kann man jedoch die Temperaturdaten für die einzelnen Höhen nutzen, um diese miteinander im Mittelwert zu vergleichen.
 Selbiges ist in Grafik \ref{fig:T_kor} aufgetragen.
-Zu sehen ist, dass die Standardabweichung sehr viel gr\"o{\ss}er ist, als die Schwankungen der Mittelwerte in verschiedenen H\"ohen.
-Dies steht im Einklang mit der Theorie, da die W\"arme ja im Inneren des Containers konvektiv an allen Thermistoren vorbeigeleitet wird, ohne dabei nennenswert Energie zu verlieren oder zu gewinnen.
+Zu sehen ist, dass die Standardabweichung sehr viel größer ist, als die Schwankungen der Mittelwerte in verschiedenen Höhen.
+Dies steht im Einklang mit der Theorie, da die Wärme ja im Inneren des Containers konvektiv an allen Thermistoren vorbeigeleitet wird, ohne dabei nennenswert Energie zu verlieren oder zu gewinnen.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\textwidth]{T_kor.png}
@@ -763,7 +774,7 @@ Dies steht im Einklang mit der Theorie, da die W\"arme ja im Inneren des Contain
 \centering
 \begin{tabular}{|l|rrrr|}
 \hline
-                                            &          Zelle &         Erdkern &      Erdmantel &    Atmosph\"are \\
+                                            &          Zelle &         Erdkern &      Erdmantel &    Atmosphäre \\
 \hline\hline
 $\alpha~[\si{\per\kelvin}]$                  &    0.00021     &     1.2e-05     &    1.5e-05     &     0.0037      \\
 $\rho~[\si{\kilo\gram\per\cubic\meter}]$     & 1000           & 12000           & 5000           &     1.29        \\
