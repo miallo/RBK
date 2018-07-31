@@ -557,7 +557,7 @@ Ein Schaltplan kann in der Abbildung \ref{fig:wheat} eingesehen werden.
 
 Die Widerstände $R_1$ und $R_3$ sind bekannt.
 Das Potentiometer $R_2$ wird zur Eichung der Brücke verwendet und der unbekannte Widerstand $R_x=R_{th}$ ist der Thermistor.
-Ist die Brücke abgeglichen, sprich die Spannung $V_G=0$, so kann man unter Zuhilfe der Kirchhoffschen Knoten- und Maschen-Regeln nachrechnen, dass gilt
+Ist die Brücke abgeglichen, sprich die Spannung $V_G=0$, so kann man unter Zuhilfenahme der Regeln für das Abfallen von in Reihe geschalteten Widerständen leicht sehen, dass gilt
 \begin{align*}
 	\frac{R_3}{R_1}=\frac{R_x}{R_2}\quad.
 \end{align*}
@@ -569,10 +569,14 @@ Ist die Brücke abgeglichen, sprich die Spannung $V_G=0$, so kann man unter Zuhi
 \end{align}
 Dabei bezeichnet $v=\frac{\Delta R_1}{R_1}$ die Verstimmung und $k=\frac{R_2}{R_1}=\frac{R_x}{R_3}$ das Brückenverhältnis.
 
+Die Spannung wird mittels eines Analog zu Digitalwandlers (ADC) gemessen.
+Bei der Auslegung des Schaltkreises muss man bedenken in welchem Spannungsbereich der ACD messen kann, wenn die Widerstände und die Spannung passend gewählt werden.
+Andernfalls benötigt man einen Verstärker, der wiederum Rauschen in die Messwerte einbringt.
+
 \subsection{Nyquist-Shannon-Abtasttheorem}
 Das \textsc{Nyquist-Shannon}-Abtasttheorem besagt, dass man zur korrekten Rekonstruktion eines Signals $S$ dieses mit mehr als der doppelten maximal darin vorkommenden Frequenz $f_{\text{max, }S}$ messen muss.
-Andernfalls kann es zu sogenannten „Sampling-Effekten“ kommen, bei denen das Rekonstruierte Signal eine deutlich geringere Frequenz aufweist, als das tatsächliche.
-Dieses ist in Grafik \ref{fig:nyquist} gut zu erkennen.
+Andernfalls kann es zu sogenannten "Sampling-Effekten" kommen, bei denen das rekonstruierte Signal eine deutlich geringere Frequenz aufweist, als das tatsächliche.
+Dieses ist in Grafik \ref{fig:nyquist} gut zu erkennen (in den unteren Zeilen ist zusätzlich zu dem tatsächlichen Signal in gestrichelt noch ein niederfrequenteres Signal eingezeichnet, welches ebenfalls zu den Messwerten (Punkten) passt).
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.4\linewidth]{nyquist}
@@ -593,12 +597,18 @@ Sie berechnet sich aus der Faltung der beiden Signale:
 	(f*g)(t)=\int f(\tau)g(t-\tau) d\tau\quad.
 	\label{eq:faltung}
 \end{align}
-Das Maximum in der Kurve gibt nun an, mit welche Abstand die meisten Plumes an den beiden Thermistoren vorbeikamen.
-Da das Ausrechnen des Integrals für alle Zeiten $t$ sehr rechenintensiv ist, kann man stattdessen vom \textit{Faltungstheorem} gebrauch machen, welches besagt
-\begin{align}
+Das Maximum in der Kurve gibt nun an, mit welche Abstand die meisten Plumes an den beiden Thermistoren vorbeikamen.\\
+
+Die Fourier-Transformation eines Signales $s$ gibt an, welche Frequenzen mit welchen Amplituden und Phasenschüben in ihm vorkommen.
+Sie berechnet sich mittels
+\begin{align*}
+	\hat s(f)=\int s(t) e^{-2\pi i t f}dt\quad.
+\end{align*}
+Da das Ausrechnen des Integrals für alle Zeiten $t$ sehr rechenintensiv ist, kann man stattdessen vom \textit{Faltungstheorem} Gebrauch machen, welches besagt
+\begin{align*}
 	\mathcal F(f*g)=\sqrt{2\pi}\mathcal F(f)\cdot\mathcal F(g)\quad.
-	\label{eq:faltungssatz}
-\end{align}
+	%\label{eq:faltungssatz}
+\end{align*}
 Dadurch muss man nur noch das Produkt der Fouriertransformierten ausrechnen und das Ergebnis rücktransformieren.
 
 
@@ -611,13 +621,31 @@ Dadurch muss man nur noch das Produkt der Fouriertransformierten ausrechnen und 
 Bei einer Schattenprojektion wird ein Fluid mittels einer hellen Lampe angestrahlt und hinter dem Fluid wird ein Schirm beobachtet.
 Durch diesen Aufbau sind Dichteunterschiede erkennbar, da sie in Brechungsindex-Variationen resultieren, welche dann zu helleren bzw. dunkleren Regionen auf dem Schirm führen.
 Um die Geschwindigkeit der Plumes zu bestimmen wird die Bewegung ihrer Schatten auf einem Schirm beobachtet und die Laufzeit durch bestimmte Abstände gemessen.
-Die gemessene Lauflänge der Schatten auf den Schirm muss noch mithilfe des Strahlensatzes umgerechnet werden um die korrekte Strecke, welche die Plumes tatsächlich durchlaufen haben, zu erhalten.\\
+Die gemessene Lauflänge der Schatten auf den Schirm muss noch mithilfe des Strahlensatzes umgerechnet werden um die korrekte Strecke, welche die Plumes tatsächlich durchlaufen haben, zu erhalten.
+Dabei wird angenommen, dass die Plumes in der Mitte der Zelle aufsteigen.\\
 
 Um die Position der Plumes in der Zelle genauer bestimmen zu können wird orthogonal zur ersten Richtung ein zweites Mal gemessen.
 Dadurch lässt sich ermitteln, in welchem Quadranten die Plumes auf und absteigen.
-%Skizze der von uns gemessenen Quadranten
-\\
-%Tabelle der Daten mit Fehlern und Raynolds Zahl
+In Abb. \ref{fig:konvektion} ist die Rotationsrichtung skizziert, wie sie am Tag der Messung vorlag.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{konvektion_skizze}
+	\caption{Draufsicht auf die Zelle. Der durch die Schattenprojektion ermittelte Aufstiegs- ($\odot$) bzw. Abstiegsort ($\oplus$) ist eingezeichnet. Dies war jedoch bei der Langzeitmessung nicht der Fall, da diese Messung an einem anderen Tag stattgefunden hat. Das Thermistorarray befand sich an dem mit \textsf T markierten Ort. Der Kreislauf schließt sich oben von $\odot$ zu $\oplus$ und an der Unterseite der Zelle umgekehrt.}
+	\label{fig:konvektion}
+\end{figure}
+
+Der Abstand zwischen Lampe und Schirm
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|cc|}
+                \hline Richtung     & Geschwindigkeit [$\si{\centi\meter\per\second}$] & Reynolds Zahl\\\hline
+		Ost-West auf        & 0.87(16)                                         & 42\\
+		Ost-West ab         & 0.73(16)                                         & 39\\
+		Nord-Süd auf        & 0.93(15)                                         & 44\\
+		Nord-Süd ab         & 0.75(06)                                         & 39\\\hline
+	\end{tabular}
+	\caption{Aus den Schattenprojektionsdaten berechnete Geschwindigkeiten und korrespondierende Reynolds Zahlen. Die Fehler ergeben sich aus der Standardabweichung der aufgenommenen Messwerte.\label{tab:schatten}}
+\end{table}
 
 
 
@@ -774,19 +802,19 @@ Dies steht im Einklang mit der Theorie, da die Wärme ja im Inneren des Containe
 \centering
 \begin{tabular}{|l|rrrr|}
 \hline
-                                            &          Zelle &         Erdkern &      Erdmantel &    Atmosphäre \\
+                                              &          Zelle &         Erdkern &      Erdmantel &    Atmosphäre \\
 \hline\hline
-$\alpha~[\si{\per\kelvin}]$                  &    0.00021     &     1.2e-05     &    1.5e-05     &     0.0037      \\
-$\rho~[\si{\kilo\gram\per\cubic\meter}]$     & 1000           & 12000           & 5000           &     1.29        \\
+$\alpha~[\si{\per\kelvin}]$                   &    0.00021     &     1.2e-05     &    1.5e-05     &     0.0037      \\
+$\rho~[\si{\kilo\gram\per\cubic\meter}]$      & 1000           & 12000           & 5000           &     1.29        \\
  $c_p~[\si{\joule\per\kilo\gram\per\kelvin}]$ & 4187           &   800           & 1200           &  1000           \\
- $\lambda~[\si{\watt\per\meter\per\kelvin}]$   &    0.6         &    30           &   10           &     0.03        \\
+ $\lambda~[\si{\watt\per\meter\per\kelvin}]$  &    0.6         &    30           &   10           &     0.03        \\
  $\mu~[\si{\pascal\second}]$                  &    0.001       &     0.012       &    1e+21       &     1.7e-05     \\
  $\nu~[\si{\square\meter\per\second}]$        &    1e-06       &     1e-06       &    2e+17       &     1.31783e-05 \\
  $\kappa~[\si{\square\meter\per\second}]$     &    1.43301e-07 &     3.125e-06   &    1.66667e-06 &     2.32558e-05 \\
  $L~[\si{\meter}]$                            &    0.2         &     2.26e+06    &    2.855e+06   & 15000           \\
  $dT~[\si{\kelvin}]$                          &   10           &  2000           & 1000           &    65           \\
- $Pr$                                       &    6.97833     &     0.32        &    1.2e+23     &     0.566667    \\
- $Ra$                                       &    1.15009e+09 &     8.69672e+29 &    1.02731e+07 &     2.59817e+22 \\
+ $Pr$                                         &    6.97833     &     0.32        &    1.2e+23     &     0.566667    \\
+ $Ra$                                         &    1.15009e+09 &     8.69672e+29 &    1.02731e+07 &     2.59817e+22 \\
 \hline
 \end{tabular}
 \caption{Tabelle der Parameter und wichtige Stoffgrößen}
