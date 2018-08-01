@@ -676,6 +676,7 @@ Die sogenannte \textit{Aliasing Frequenz} $f_a$, welche der gemessenen Frequenz 
 da negative Frequenzen durch die Symmetrie des Kosinus auch auf die positive Achse gespiegelt werden können (oder anders: es kommt nur auf die absolute Differenz der Signale an).
 
 Bei uns lag die optimale Messfrequenz bei etwa $\SI{9.1}\hertz$, so dass die folgenden Messungen mit ebendieser Frequenz aufgenommen wurden.
+Für diese Frequenz wurden in Abb. \ref{fig:stoershift} die nach Formel \ref{eq:stoerfreq} geshifteten Daten aufgetragen.
 
 \begin{figure}[h]
 	\centering
@@ -683,6 +684,31 @@ Bei uns lag die optimale Messfrequenz bei etwa $\SI{9.1}\hertz$, so dass die fol
 	\caption{Nach Formel \ref{eq:stoerfreq} berechnetes Powerspektrum. Weiterhin ist die Netzfrequenz deutlich zu erkennen, jedoch in einem irrelevanten Frequenzbereich. Im relevanten ist das Powerspektrum annähernd konstant.}
 	\label{fig:stoershift}
 \end{figure}
+
+\subsection{Abbruchfrequenz}
+Im Spektrum eines Signales eines Thermistors kann man bestimmen, welche Frequenzen noch einen nennenswerten Beitrag zum Signal geben.
+Ab einer gewissen Abbruchfrequenz ist der Beitrag des Signals dem Rauschen gegenüber zu vernachlässigen.
+Ab dieser ist im Spektrum nur noch weißes Rauschen (eine nahezu konstante Amplitude) zu erkennen.
+
+Um sie zu bestimmen kann man am einfachsten eine Wendetangente an die abfallende Flanke des Spektrums legen und den Schnittpunkt mit einer Ausgleichsgeraden des linearen Bereichs des weißen Rauschens bestimmen.
+Da dies schwer algorithmisch durchführbar ist, haben wir dies mittels Augenmaß gemacht, da frühere Durchführungen dieses Versuches zeigten, dass die Akkuratheit hinreichend groß ist.
+Die Konstruktion des Punktes ist beispielhaft in Grafik \ref{fig:abbruchfreq} dargestellt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{abbruchfrequenz}
+	\caption{Konstruktion der Abbruchfrequenz <+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++>}
+	\label{fig:abbruchfreq}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{abbruch_result}
+	\caption{Ermittelte Abbruchfrequenz aufgetragen gegen die Messhöhe.}
+	\label{fig:abbruchresult}
+\end{figure}
+
+
 
 \subsection{Geschwindigkeits- und Temperaturprofil}
 \label{sec:profile}
