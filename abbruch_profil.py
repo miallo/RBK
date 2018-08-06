@@ -39,6 +39,7 @@ data = [[0.735,0.74,0.758],
         #[1.5,1.68,1.4]]
 
 plt.errorbar(height,np.mean(data,axis=1),yerr=np.std(data,axis=1),fmt="r-",capsize=5)
+plt.ylim(ymin=0, ymax=2.25)
 plt.xlabel(u"Höhe [cm]")
 plt.ylabel("Abbruchfrequenz [Hz]")
 plt.grid()

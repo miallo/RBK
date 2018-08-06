@@ -697,17 +697,23 @@ Die Konstruktion des Punktes ist beispielhaft in Grafik \ref{fig:abbruchfreq} da
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{abbruchfrequenz}
-	\caption{Konstruktion der Abbruchfrequenz <+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++>}
+	\caption{Konstruktion der Abbruchfrequenz. Zunächst wird die Wendetangente (schwarz) bei der abfallenden Kurve angelegt. Zeitgleich wird bei den hohen Frequenzen mit annähernd konstantem Level eine lineare Regression durchgeführt (blau). Der Schnittpunkt der sich ergebenden Geraden (grün) liegt nun bei der Abbruchfrequenz. Dies sollte in etwa mit dem Minimum des mit dem Frequenzquadrat multipliziertem Powerspektrums (lila) übereinstimmen.}
 	\label{fig:abbruchfreq}
 \end{figure}
 
 Das Geschwindigkeitsfeld wurde in der unteren Hälfte im Zentrum der Zelle mit dem beweglichen Thermistor vermessen.
-Da die Geschwindigkeit der Plumes
+Da die Geschwindigkeit der Plumes mit maßgeblich dafür verantwortlich ist, mit welcher Frequenz die Temperatur fluktuiert, ist anzunehmen, dass die Geschwindigkeit linear mit der Abbruchfrequenz skaliert.
+Es können jedoch keinerlei absoluten Werte abgelesen werden. 
+In Abbildung \ref{fig:abbruchhoehe} sind die Abbruchfrequenzen aus verschiedenen Höhen aufgetragen.
+Wie zu erwarten ist die Geschwindigkeit in minimaler Höhe gering, da aus den Modellen hervorgeht, dass sie in der Grenzschicht verschwindend ist.
+Dann steigt sie zunächst an, was auch bei den Simulationen der Fall ist, wenn man sich nicht genau in dem aufsteigenden Bereich befindet, nur um ab ungefähr $\SI5{\centi\meter}$ konstant auf niedrigem Niveau zu sein.
+Dies entspricht genau dem Fall im Inneren der LSC (siehe Kapitel \ref{sec:simulation}).
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{abbruch_result}
 	\caption{Ermittelte Abbruchfrequenz aufgetragen gegen die Messhöhe.}
-	\label{fig:abbruchresult}
+	\label{fig:abbruchhoehe}
 \end{figure}
 
 
@@ -727,8 +733,22 @@ In ihr ist auch die Standardabweichung gering, was darauf schließen lässt, das
 \label{fig:temp_profil}
 \end{figure}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{v_hoehe}
+	\caption{Aus der Korellationsmessung bestimmte Geschwindigkeit in verschieden Höhen. <+++++++++++++++++++++++++++++++++++++++++++++++++++++++++>}
+	\label{fig:v_hoehe}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{tempcorell}
+	\caption{Korellation benachbarter Thermistoren aufgetragen gegen die mit dem jeweiligen Abstand normierte Zeitdifferenz.}
+	\label{fig:tempcorell}
+\end{figure}
 
 \subsection{Simulierte Profile und Daten}
+\label{sec:simulation}
 Da die Konstruktion und Durchführung von Experimenten mit unterschiedlichen Rayleigh-Zahlen aufwändig ist, greifen Experimentatoren in diesem Bereich gerne auf Simulationen zurück.
 Allerdings steigt der Rechenaufwand für große Rayleigh-Zahlen rasant an, so dass es irgendwann nicht mehr sinnvoll ist.
 Auch sind die hier durchgeführten Simulationen nur zweidimensional, wodurch bestimmte Effekte des Experiments nicht rekonstruiert werden können.
