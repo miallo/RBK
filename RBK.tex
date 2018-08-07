@@ -721,7 +721,6 @@ Dies entspricht genau dem Fall im Inneren der LSC (siehe Kapitel \ref{sec:simula
 \subsection{Temperaturprofil}
 \label{sec:profile}
 
-
 In Grafik \ref{fig:temp_profil} ist das höhenabhängige Temperaturprofil im Zentrum der Zelle aufgetragen.
 Dabei stellt die rote Kurve den Mittelwert dar und der blaue Bereich zeigt die zeitliche Standardabweichung an.
 Deutlich zu erkennen ist die Grenzschicht an der unteren Heizplatte.
@@ -733,19 +732,16 @@ In ihr ist auch die Standardabweichung gering, was darauf schließen lässt, das
 \label{fig:temp_profil}
 \end{figure}
 
+Der Plot \ref{fig:v_hoehe} zeigt die aus der Langzeit-Korrelationsmessung gewonnenen Geschwindigkeitsdaten in Abhängigkeit der Höhe.
+Zu erkennen ist, dass die Geschwindigkeit dichter am Boden mit $\SI{0.8}{\centi\meter\per\second}$ deutlich größer ist, als in der Mitte mit $\approx\SI{0.6}{\centi\meter\per\second}$.
+In 80\% der Zellenhöhe beträgt sie dann nur noch $\SI{0.5}{\centi\meter\per\second}$.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{v_hoehe}
-	\caption{Aus der Korellationsmessung bestimmte Geschwindigkeit in verschieden Höhen. <+++++++++++++++++++++++++++++++++++++++++++++++++++++++++>}
+	\caption{Aus der Korrelationsmessung bestimmte Geschwindigkeit in verschieden Höhen. <+++++++++++++++++++++++++++++++++++++++++++++++++++++++++>}
 	\label{fig:v_hoehe}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\linewidth]{tempcorell}
-	\caption{Korellation benachbarter Thermistoren aufgetragen gegen die mit dem jeweiligen Abstand normierte Zeitdifferenz.}
-	\label{fig:tempcorell}
-\end{figure}
 
 \subsection{Simulierte Profile und Daten}
 \label{sec:simulation}
@@ -785,20 +781,20 @@ In Abb. \ref{fig:v_num} <+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 \subsection{Langzeit- und Korrelationsmessung}
-In Abbildung \ref{fig:korrelation} ist die Korrelation zwischen aufeinanderfolgenden Thermistoren aufgetragen.
-Zu erkennen ist deutlich, dass die Maxima nicht an der selben Position sind.
+In Abbildung \ref{fig:tempcorell} ist die Korrelation zwischen benachbarten Thermistoren aufgetragen.
+Dabei wurde die Zeit-Achse mit dem jeweiligen inversen Abstand skaliert, da sich diese unterschieden und somit die Position der Maxima nicht vergleichbar war.
+Es ist zu erkennen, dass sich die Position des Maximum und damit die durchschnittliche Geschwindigkeit sich zwischen den unterschiedlichen Thermistoren unterscheidet.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{tempcorell}
+	\caption{Korrelation benachbarter Thermistoren aufgetragen gegen die mit dem jeweiligen inversen Abstand skalierte Zeitdifferenz.}
+	\label{fig:tempcorell}
+\end{figure}
 Dies ist auch in Figure \ref{fig:V_kor} zu erkennen, in der die Geschwindigkeiten (basierend auf der Peak-Position) aufgetragen sind.
-Dabei ist zu beachten, dass die Thermistoren nicht äquidistant sind.\\
 
 Die Breite der Korrelation kann man nicht ohne weiteres auswerten, da dort noch zahlreiche Effekte herein spielen, wie die Entstehung eines Plumes beeinflusst die Bildung eines weiteren und noch wichtiger: ein Plume bildet in den Messdaten keinen $\delta$-Peak, sondern er ist in der Größenordnung des Abstands der Thermistoren.
 Dadurch verschwindet die Korrelation nicht bei $t=0$ und die Breite des Peaks ist nicht nur durch die Geschwindigkeitsverteilung unterschiedlicher Plumes beeinflusst.
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.7\linewidth]{kor}
-	\caption{Korrelation zwischen den Signalen aufeinanderfolgender Thermistoren. Die Maxima befinden sich zwischen $3.7$ und $6.2\si\s$.}
-\label{fig:korrelation}
-\end{figure}
 
 
 Aus der Langzeitmessung kann man jedoch die Temperaturdaten für die einzelnen Höhen nutzen, um diese miteinander im Mittelwert zu vergleichen.
