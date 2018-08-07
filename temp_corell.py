@@ -19,7 +19,7 @@ hoehe = np.array([0.02,0.05,0.08,0.12,0.15,0.18])
 for i in range(1,6):
     #value.append(np.array([(hoehe[i-1]+hoehe[i])/2.,(hoehe[i]-hoehe[i-1])/data[np.argmax(data[:,i]),0]]))
     mean    = data[np.argmax(data[:,i]),0]
-    mask    = (data[:,0]>mean-3.) & (data[:,0]<mean+3.)
+    mask    = (data[:,0]>mean-2.5) & (data[:,0]<mean+2.5)
     #fit gaussian
     popt,pcov = curve_fit(gauss,data[mask,0],data[mask,i],p0=[1.,mean,1.])
 
@@ -27,7 +27,7 @@ for i in range(1,6):
 
 
 value = np.array(value)
-plt.plot(value[:,0]*100,value[:,1]*100,'r+-')
+plt.plot(20-value[:,0]*100,-value[:,1]*100,'r+-')
 plt.xlabel(u"Höhe [cm]")
 plt.ylabel(r"Geschwindigkeit [cms$^{-1}$]")
 plt.grid(True)
