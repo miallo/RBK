@@ -26,4 +26,4 @@ plt.plot(xs_no,np.exp(np.polyval(nup_no,np.log(xs_no))),"b",
 plt.plot([1.743976276],[0.00135268], "go", label="Abbruchfrequenz bei $x=1.74$Hz, $y=0.0014$")
 plt.grid(True,which="both")
 plt.legend(loc="best")
-plt.savefig("abbruchfrequenz.pdf",dpi=300,bbox_inches="tight")
+plt.savefig("images/abbruchfrequenz.pdf",dpi=300,bbox_inches="tight")

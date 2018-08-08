@@ -135,6 +135,8 @@
 
 %Zum Einbinden von GRafiken
 \usepackage{graphicx}% [pdflatex]
+\graphicspath{{images/}}
+
 \usepackage{xcolor}%
 
 %Für textumflossene Grafiken
@@ -753,7 +755,7 @@ Es ist zu erkennen, dass sich die Position des Maximum und damit die durchschnit
 	\caption{Korrelation benachbarter Thermistoren aufgetragen gegen die mit dem jeweiligen inversen Abstand skalierte Zeitdifferenz.}
 	\label{fig:tempcorell}
 \end{figure}
-Dies ist auch in Figure \ref{fig:V_kor} zu erkennen, in der die Geschwindigkeiten (basierend auf der Peak-Position) aufgetragen sind.
+Dies ist auch in Figure \ref{fig:v_hoehe} zu erkennen, in der die Geschwindigkeiten (basierend auf der Peak-Position) aufgetragen sind.
 
 Die Breite der Korrelation kann man nicht ohne weiteres auswerten, da dort noch zahlreiche Effekte herein spielen, wie die Entstehung eines Plumes beeinflusst die Bildung eines weiteren und noch wichtiger: ein Plume bildet in den Messdaten keinen $\delta$-Peak, sondern er ist in der Größenordnung des Abstands der Thermistoren.
 Dadurch verschwindet die Korrelation nicht bei $t=0$ und die Breite des Peaks ist nicht nur durch die Geschwindigkeitsverteilung unterschiedlicher Plumes beeinflusst.
@@ -768,7 +770,7 @@ Zu sehen ist, dass die Standardabweichung sehr viel größer ist, als die Schwan
 Dies steht im Einklang mit der Theorie, da die Wärme ja im Inneren des Containers konvektiv an allen Thermistoren vorbeigeleitet wird, ohne dabei nennenswert Energie zu verlieren oder zu gewinnen.
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.8\textwidth]{T_kor.png}
+\includegraphics[width=0.8\textwidth]{T_kor}
 \caption{Temperatur aus der Korrelationsmessung}
 \label{fig:T_kor}
 \end{figure}
