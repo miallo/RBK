@@ -470,8 +470,8 @@ Es gibt einen kritischen Wert $Ra_\text{crit}$ ab dem der thermische Ausgleich v
 In Tabelle \ref{tab:par} im Anhang sind Kennzahlen für verschiedene Systeme und die jeweiligen Stoffparameter aufgeführt.
 %Beschreibung der Rayleigh Zahl in der Zelle
 
-\subsection{Nusselt-Zahl}
-Zur Beschreibung des Wärmetransportes wird die Nusselt-Zahl
+\subsection{Nußelt-Zahl}
+Zur Beschreibung des Wärmetransportes wird die Nußelt-Zahl
 \begin{align*}
 	Nu=\frac{\text{gesamter Wärmetransport}}{\text{diffusiver Wärmetransport}}
 \end{align*}
@@ -480,11 +480,11 @@ Diese ist unterhalb der kritischen Rayleigh-Zahl $Nu=1$, da hier ausschließlich
 Oberhalb dieser steigt $Nu$ kontinuierlich an, da die Wärme zunehmend durch Konvektion transportiert wird.
 Aufgrund der Randbedingung der Geschwindigkeit gibt es an den Rändern keine Advektion, wesshalb sich also eine diffusive Randschicht ausbildet.
 Ist die Advektion im Inneren der Zelle ausreichend groß, so wird dort keine Wärme mehr diffusiv übertragen und somit nimmt die Dicke der thermischen Grenzschicht $\delta$ ab.
-Aus einfachen Überlegungen lässt sich schnell nachvollziehen, dass für die Nusselt-Zahl in erster Näherung gilt
+Aus einfachen Überlegungen lässt sich schnell nachvollziehen, dass für die Nußelt-Zahl in erster Näherung gilt
 \begin{align}
 	Nu=\frac{L}{2\delta}\quad.
 \end{align}
-Eine weitergehende Beschreibung der Nusselt-Zahl und möglicher Abhängigkeiten zu den anderen Parameters kann im Buch von J.S. Turner \cite{Bef} in den Kapiteln 7.1.1, 7.1.3 und 7.3.1 nachgelesen werden.
+Eine weitergehende Beschreibung der Nußelt-Zahl und möglicher Abhängigkeiten zu den anderen Parameters kann im Buch von J.S. Turner \cite{Bef} in den Kapiteln 7.1.1, 7.1.3 und 7.3.1 nachgelesen werden.
 %Bild des Temperaturprofils aus der Simulation
 
 \subsection{Plumes}
@@ -495,7 +495,7 @@ Sie sind ähnlich zu einem Jet, allerdings sind diese verursacht durch einen ini
 Eine schematische Darstellung eines Plumes ist in der Abbildung \ref{fig:plume} zu sehen.
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.5\textwidth]{Plume.png}
+\includegraphics[width=0.5\textwidth]{Plume}
 \caption{Schema eines Mantelplumes.\protect\footnotemark Der untere Teil des Plumes besteht aus einer auftriebsgetriebenen Aufströmung, welche oben an der Grenze des Mantels eine pilzkopfartige Form annimmt. An dem Ort des Auftreffens steigt die Warscheinlichkeit vukanischer Aktivität.}
 \label{fig:plume}
 \end{figure}
@@ -514,11 +514,12 @@ Dieses Phänomen kann man auch in Abb. \ref{fig:bromo_plumes} sehen, wo sich die
 Auf großen Zeit- und Längenskalen dominiert die großräumige Zirkulation (Large Scale Circulation, LSC).
 Sie wird durch Reibungseffekte kontinuierlich abgebremst, und durch zeitlich und räumlich statistisch auftretende Plumes im Mittel angetrieben.
 Die möglichen Formen der LSC sind sehr vielfältig und können zum Beispiel hexagonal oder auch walzenförmig sein.
+In Abbildung \ref{fig:1e5_num} ist eine walzenförmige aus einer Simulation für eine Rayleigh-Zahl von $10^5$ gut erkennbar.
 Um diese Formen auch in sehr turbulenten Strömungen zu erkennen, muss das Geschwindigkeitsfeld zeitlich gemittelt werden. 
 Je kleiner die Rayleigh-Zahl, desto kleiner die Turbulenz und desto kürzer muss der Zeitraum der Mittelung sein, um LCS zu sehen.
 \begin{figure}[!ht]
 \centering
-\includegraphics{1e5.eps}
+\includegraphics{1e5}
 \caption{Ergebnis einer Simulation für $Ra=10^5$. Gut erkennbar ist, dass eine großräumige kreisförmige Strömung existiert, welche an den Rändern und im Zentrum zum erliegen kommt.}
 \label{fig:1e5_num}
 \end{figure}
@@ -551,7 +552,7 @@ Eine Wheatstonebrücke ist eine Schaltung, bei der durch mehrere bekannte Widers
 Ein Schaltplan kann in der Abbildung \ref{fig:wheat} eingesehen werden.
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.5\textwidth]{Wheatstone.png}
+\includegraphics[width=0.5\textwidth]{Wheatstone}
 \caption{Schaltung einer Wheatstonebrücke.\protect\footnotemark}
 \label{fig:wheat}
 \end{figure}
@@ -629,14 +630,17 @@ Dabei wird angenommen, dass die Plumes in der Mitte der Zelle aufsteigen.\\
 Um die Position der Plumes in der Zelle genauer bestimmen zu können wird orthogonal zur ersten Richtung ein zweites Mal gemessen.
 Dadurch lässt sich ermitteln, in welchem Quadranten die Plumes auf und absteigen.
 In Abb. \ref{fig:konvektion} ist die Rotationsrichtung skizziert, wie sie am Tag der Messung vorlag.
+
+Der Abstand zwischen Lampe und Mitte der Zelle beträgt in Ost-West-Richtung etwa $2.5\si\meter$ (bzw $2.75\si\meter$ in Nord-Süd) und der Abstand von Lichtquelle bis zum Schirm ist $2.93\si\meter$ in O-W-Richtung ($3.2\si\meter$ in N-S-Projektion).
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\linewidth]{konvektion_skizze}
 	\caption{Draufsicht auf die Zelle. Der durch die Schattenprojektion ermittelte Aufstiegs- ($\odot$) bzw. Abstiegsort ($\oplus$) ist eingezeichnet. Dies war jedoch bei der Langzeitmessung nicht der Fall, da diese Messung an einem anderen Tag stattgefunden hat. Das Thermistorarray befand sich an dem mit \textsf T markierten Ort. Der Kreislauf schließt sich oben von $\odot$ zu $\oplus$ und an der Unterseite der Zelle umgekehrt.}
 	\label{fig:konvektion}
 \end{figure}
-
-Der Abstand zwischen Lampe und Mitte der Zelle beträgt in Ost-West-Richtung etwa $2.5\si\meter$ (bzw $2.75\si\meter$ in Nord-Süd) und der Abstand von Lichtquelle bis zum Schirm ist $2.93\si\meter$ in O-W-Richtung ($3.2\si\meter$ in N-S-Projektion).
+In Tabelle \ref{tab:schatten} sind die Ergebnisse aufgetragen.
+Es ist jedoch anzumerken, dass bei der Messung vor allem die gut sichtbaren Plumes vermessen wurden.
+Da diese augenscheinlich einen größeren Unterschied im Brechungsindex haben, ist ihr Temperaturunterschied vermutlich auch größer und es besteht die Gefahr einer systematischen Überschätzung der Geschwindigkeit.
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|l|cc|}
@@ -646,7 +650,8 @@ Der Abstand zwischen Lampe und Mitte der Zelle beträgt in Ost-West-Richtung etw
 		Nord-Süd auf        & 0.93(15)                                         & 44\\
 		Nord-Süd ab         & 0.75(06)                                         & 39\\\hline
 	\end{tabular}
-	\caption{Aus den Schattenprojektionsdaten berechnete Geschwindigkeiten und korrespondierende Reynolds Zahlen. Die Fehler ergeben sich aus der Standardabweichung der aufgenommenen Messwerte.\label{tab:schatten}}
+	\caption{Aus den Schattenprojektionsdaten berechnete Geschwindigkeiten und korrespondierende Reynolds Zahlen. Die Fehler ergeben sich aus der Standardabweichung der aufgenommenen Messwerte.}
+	\label{tab:schatten}
 \end{table}
 
 
@@ -720,7 +725,7 @@ Dies entspricht genau dem Fall im Inneren der LSC (siehe Kapitel \ref{sec:simula
 
 
 
-\subsection{Temperaturprofil}
+\subsection{Temperatur- \& Geschwindigkeitsprofil}
 \label{sec:profile}
 
 In Grafik \ref{fig:temp_profil} ist das höhenabhängige Temperaturprofil im Zentrum der Zelle aufgetragen.
@@ -746,6 +751,7 @@ In 80\% der Zellenhöhe beträgt sie dann nur noch $\SI{0.5}{\centi\meter\per\se
 
 
 \subsection{Langzeit- und Korrelationsmessung}
+
 In Abbildung \ref{fig:tempcorell} ist die Korrelation zwischen benachbarten Thermistoren aufgetragen.
 Dabei wurde die Zeit-Achse mit dem jeweiligen inversen Abstand skaliert, da sich diese unterschieden und somit die Position der Maxima nicht vergleichbar war.
 Es ist zu erkennen, dass sich die Position des Maximum und damit die durchschnittliche Geschwindigkeit sich zwischen den unterschiedlichen Thermistoren unterscheidet.
@@ -781,81 +787,80 @@ Dies steht im Einklang mit der Theorie, da die Wärme ja im Inneren des Containe
 \label{sec:simulation}
 Da die Konstruktion und Durchführung von Experimenten mit unterschiedlichen Rayleigh-Zahlen aufwändig ist, greifen Experimentatoren in diesem Bereich gerne auf Simulationen zurück.
 Allerdings steigt der Rechenaufwand für große Rayleigh-Zahlen rasant an, so dass es irgendwann nicht mehr sinnvoll ist.
-Auch sind die hier durchgeführten Simulationen nur zweidimensional, wodurch bestimmte Effekte des Experiments nicht rekonstruiert werden können.
+Auch sind die hier in dem Finite-Elemente-Simulationsprogramm Comsol durchgeführten Simulationen nur zweidimensional, wodurch bestimmte Effekte des Experiments nicht rekonstruiert werden können.
 Dennoch stimmen die Ergebnisse im Allgemeinen gut mit den Messwerten überein.\\
 
-In Abb. \ref{fig:v_num} <++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++>
+In Abb. \ref{fig:simulation} sind die Ergebnisse einer Simulation für Rayleigh-Zahlen zwischen $10^3$ und $10^7$ dargestellt.
+Anstelle einer Temperatur wurde mit Comsol mit einem Konzentrationsgradienten gerechnet und die Ergebnisse sind in \ref{fig:t_num} dargestellt.
+Da diese aber Formeln der selben Form folgt, sind die Ergebnisse äquivalent zu einem Temperaturprofil.
+
+In \ref{fig:v_num} sind die Geschwindigkeitsprofile gezeigt.
+Dabei ist zu sehen, dass für $Ra=10^3$ die Geschwindigkeit überall verschwindend ist.
+Dies bedeutet, dass noch keine Konvektion eingesetzt hat und der Energiefluss noch rein diffusiv ist.
+Dies kann man auch in den anderen Graphen erkennen: So ist das Temperaturprofil linear und die Nußelt-Zahl im Equilibrium eins.\\
+
+Für größere Rayleigh-Zahlen setzt die LSC jedoch ein und es ist zu erkennen, dass im Zentrum der Zelle die Geschwindigkeit abnimmt.
+Dies liegt daran, dass sich, wie in Abb. \ref{fig:1e5_num} zu sehen, ein Wirbel bildet mit dem Auge im Zentrum.
+An den Rändern ist (durch die Randbedingung vorgegeben) ebenfalls keine Strömung vorhanden.
+Dies liegt daran, dass dort durch die Reibung mit der Wand eine Grenzschicht entsteht.
+Außerdem kann man leicht sehen, dass mit größerer Rayleigh-Zahl auch die Geschwindigkeit ansteigt.
+Dies ist insofern nachvollziehbar, als dass bei größerem konvektiven Anteil des Wärmeflusses natürlich die LSC auch stärker angetrieben wird.\\
+
+Die Nußelt-Zahl wurde als Pfadintegral über den Temperaturgradienten am oberen Rand berechnet. 
+In Grafik \ref{fig:nu_num} sieht man die Entwicklung der Nußelt-Zahl im zeitlichen Verlauf der Simulation.
+Zu erkennen ist, dass gerade die Kurven größerer Rayleigh-Zahlen deutlich mehr Fluktuationen aufweisen.
+Dies kommt daher, dass mit steigendem Turbulenzgrad auch mehr Plumes statistisch entlang der Linie über die integriert wird auftreten.
+
 \begin{figure}[!ht]
 	\centering
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-	\includegraphics[width=0.9\linewidth]{V}
-        \caption{Geschwindigkeitsprofil}
+	\includegraphics[width=1\linewidth]{V_sim}
+	\caption{Geschwindigkeitsprofile in Abhängigkeit der Höhe.}
 	\label{fig:v_num}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-	\includegraphics[width=0.9\linewidth]{T}
-        \caption{Temperaturprofil}
+	\includegraphics[width=1\linewidth]{T_sim}
+	\caption{Temperaturprofile in Abhängigkeit der Höhe.}
 	\label{fig:t_num}
     \end{subfigure}
-    \caption{Simulationen für verschiedene Rayleigh-Zahlen.}
-\end{figure}
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.8\textwidth]{Nu.png}
-\caption{Nusselt Zahl}
-\label{fig:nu_num}
-\end{figure}
-
-
-
-
-
-<<<<<<< HEAD
-=======
-\subsection{Langzeit- und Korrelationsmessung}
-In Abbildung \ref{fig:tempcorell} ist die Korrelation zwischen benachbarten Thermistoren aufgetragen.
-Dabei wurde die Zeit-Achse mit dem jeweiligen inversen Abstand skaliert, da sich diese unterschieden und somit die Position der Maxima nicht vergleichbar war.
-Es ist zu erkennen, dass sich die Position des Maximum und damit die durchschnittliche Geschwindigkeit sich zwischen den unterschiedlichen Thermistoren unterscheidet.
-\begin{figure}[h]
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.7\linewidth]{tempcorell}
-	\caption{Korrelation benachbarter Thermistoren aufgetragen gegen die mit dem jeweiligen inversen Abstand skalierte Zeitdifferenz.}
-	\label{fig:tempcorell}
-\end{figure}
-Dies ist auch in Figure \ref{fig:V_kor} zu erkennen, in der die Geschwindigkeiten (basierend auf der Peak-Position) aufgetragen sind.
-
-Die Breite der Korrelation kann man nicht ohne weiteres auswerten, da dort noch zahlreiche Effekte herein spielen, wie die Entstehung eines Plumes beeinflusst die Bildung eines weiteren und noch wichtiger: ein Plume bildet in den Messdaten keinen $\delta$-Peak, sondern er ist in der Größenordnung des Abstands der Thermistoren.
-Dadurch verschwindet die Korrelation nicht bei $t=0$ und die Breite des Peaks ist nicht nur durch die Geschwindigkeitsverteilung unterschiedlicher Plumes beeinflusst.
-
-
-
-Aus der Langzeitmessung kann man jedoch die Temperaturdaten für die einzelnen Höhen nutzen, um diese miteinander im Mittelwert zu vergleichen.
-Selbiges ist in Grafik \ref{fig:T_kor} aufgetragen.
-Zu sehen ist, dass die Standardabweichung sehr viel größer ist, als die Schwankungen der Mittelwerte in verschiedenen Höhen.
-Dies steht im Einklang mit der Theorie, da die Wärme ja im Inneren des Containers konvektiv an allen Thermistoren vorbeigeleitet wird, ohne dabei nennenswert Energie zu verlieren oder zu gewinnen.
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.8\textwidth]{T_kor.png}
-\caption{Temperatur aus der Korrelationsmessung}
-\label{fig:T_kor}
+	\includegraphics[width=1\textwidth]{Nu_sim}
+	\caption{Nußelt Zahlen im zeitlichen Verlauf der Simulation.}
+	\label{fig:nu_num}
+    \end{subfigure}
+    \caption{Simulationen für verschiedene Rayleigh-Zahlen.}
+    \label{fig:simulation}
 \end{figure}
 
 
 
 
-
->>>>>>> d2a53ff46d5987336f85e7b48ea50cb99e5f5d16
 \subsection{Vergleiche der Geschwindigkeiten}
+Hier sollen die unabhängigen Messungen der Geschwindigkeiten aus der Schattenprojektion (Kapitel \ref{sec:schattenproj}) und der Korrelation (Kapitel \ref{sec:profile}) miteinander verglichen werden.
 
-\subsection{Nusselt-Zahl}
+Die durch die Schattenprojektion bestimmten Werte für die Geschwindigkeit liegen zwischen $\SI{0.7}{\centi\meter\per\second}$ und $\SI{0.9}{\centi\meter\per\second}, wohingegen die durch die Korrelation ermittelten Werte im Bereich von $\SI{0.5}{\centi\meter\per\second}$ bis $\SI{0.8}{\centi\meter\per\second} liegen.
+Zusätzlich zu der in Kapitel \ref{sec:schattenproj} geäußerten Vermutung, dass durch das Selektieren der gut sichtbaren Plumes eine systematische Präferenz der schnelleren Plumes stattfand, kommt, dass die Messungen an unterschiedlichen Zellen gemacht wurden <+++++++++++++++++++++++++++++++++++++++++++++++++++++++++>
+
+
+
+
+Man kann sich nun die zwei theoretischen Grenzwerte angucken, welche für die Geschwindigkeit in der Zelle gelten: zum einen die durch den freien Fall, für die gilt
+\begin{align*}
+	v_\text{Fall}=\sqrt{Lg\alpha\Delta T}
+	\label{eq:fall}
+\end{align*}
+da durch den Temperatur
+
+\subsection{Nußelt-Zahl}
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.8\textwidth]{Nu_Ra.png}
+\includegraphics[width=0.8\textwidth]{Nu_Ra}
 \caption{Nussel Zahl gegen Rayleigh Zahl aufgetragen.}
 \label{fig:Nu_Ra}
 \end{figure}
@@ -869,7 +874,7 @@ Dies steht im Einklang mit der Theorie, da die Wärme ja im Inneren des Containe
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.8\textwidth]{hist.png}
+\includegraphics[width=0.8\textwidth]{hist}
 \caption{Histogram der Temperaturen}
 \label{fig:hist}
 \end{figure}
