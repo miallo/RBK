@@ -855,21 +855,30 @@ Man kann sich nun zwei theoretische Geschwindigkeiten angucken, welche in der Ze
 	\label{eq:fall}
 \end{align*}
 da durch den Temperaturdifferenz $\Delta T$ ein zu $\alpha\Delta T$ proportionaler Dichteunterschied zustande kommt, der über die Höhe $L$ der Zelle mit der Erdbeschleunigung $g$ Auftrieb erfährt.
-Die andere Grenze der Geschwindigkeit ist die viskose Endgeschwindigkeit:
+
+
+Laut Praktikumshandbuch sollte die viskose Endgeschwindigkeit
 \begin{align*}
-	v_\text{End} = <+++++++++++++++++++++++++++++++++++++++++++++++++++++++++>\quad.% \frac{\nu}{L}\approx5\times10^{-2}\si{\centi\meter\per\second}
+  v_\text{End} = \frac{\nu}{L}\approx5\times10^{-2}\si{\centi\meter\per\second}
 \end{align*}
-Sie gibt an, welche Endgeschwindigkeit basierend auf der Reibung erreicht wird.
+betragen.
+Allerdings kann man anhand der Herleitung sehen, dass dabei keinerlei Auftriebskräfte mit einberechnet wurden.
+Noch bedeutender ist, dass diese Formal impliziert, dass in viskoseren Flüssigkeiten eine höhere Endgeschwindigkeit erreicht würde.
+Dies erscheint physikalisch nicht sinnvoll für den hier vorliegenden Fall.
 
 
-
-
-
-
-Und zum anderen die durch \textsc{Stokes}-Reibung verringerte Geschwindigkeit, die aus dem Gleichsetzen der Stokesschen Reibungskraft mit der Auftriebskraft kommt:
+Nimmt man jedoch die durch die \textsc{Stokes}-Reibung verringerte Geschwindigkeit, die aus dem Gleichsetzen der Stokesschen Reibungskraft mit der Auftriebskraft berechnet werden kann, so kommt man auf:
 \begin{align*}
-  v_\text{Stokes} = \frac{2}{9}\frac{\left( \rho_\text{Plume}-\rho_\text{Fluid} \right)}{\eta}gR^2=\frac{2}{9}\frac{gR^2\left( 1-\alpha\Delta T \right)}{\nu}\approx
-\end{align*}<++>
+  v_\text{Stokes} = \frac{2}{9}\frac{\left( \rho_\text{Plume}-\rho_\text{Fluid} \right)}{\eta}gR^2=\frac{2}{9}\frac{gR^2~\alpha\Delta T}{\nu}\approx\SI{11}{\centi\meter\per\second}
+\end{align*}
+wobei für den Radius der Plumes \SI{0.5}{\centi\meter} angenommen wurde.
+Dies sollte die maximal erreichbare Geschwindigkeit sein (sieht man davon ab, dass bei der Herleitung von einem sphärischen starren Körper ausgegangen wird).
+Zu erkennen ist, dass diese Geschwindigkeit noch immer zu hoch im Vergleich zu den Messwerten ist.
+Zumal man bei der Schattenprojektion schon wenige Zentimeter vom Boden entfernt keine signifikante Beschleunigung mehr mit bloßem Auge erkennbar war.
+Vermutlich liegt es daran, dass durch den flüssigen Plume zusätzliche Wirbel entstehen können, welche wieder Energie vernichten.
+Auch wird ein Anteil des Impulses von dem Plume an die LSC abgegeben um diese anzutreiben.
+Andererseits müsste die effektive Geschwindigkeit durch die Strömung sogar geringer sein.
+
 
 \subsection{Nußelt-Zahl}
 
@@ -901,27 +910,26 @@ Und zum anderen die durch \textsc{Stokes}-Reibung verringerte Geschwindigkeit, d
 
 \newpage
 \section{Anhang}
-%Zahlen Überarbeiten und runden
 \begin{table}
 \centering
 \begin{tabular}{|l|rrrr|}
 \hline
-                                              &          Zelle &         Erdkern &      Erdmantel &    Atmosphäre \\
+                                              & Zelle       & Erdkern    & Erdmantel &Atmosphäre \\
 \hline\hline
-$\alpha~[\si{\per\kelvin}]$                   &    0.00021     &     1.2e-05     &    1.5e-05     &     0.0037      \\
-$\rho~[\si{\kilo\gram\per\cubic\meter}]$      & 1000           & 12000           & 5000           &     1.29        \\
- $c_p~[\si{\joule\per\kilo\gram\per\kelvin}]$ & 4187           &   800           & 1200           &  1000           \\
- $\lambda~[\si{\watt\per\meter\per\kelvin}]$  &    0.6         &    30           &   10           &     0.03        \\
- $\mu~[\si{\pascal\second}]$                  &    0.001       &     0.012       &    1e+21       &     1.7e-05     \\
- $\nu~[\si{\square\meter\per\second}]$        &    1e-06       &     1e-06       &    2e+17       &     1.31783e-05 \\
- $\kappa~[\si{\square\meter\per\second}]$     &    1.43301e-07 &     3.125e-06   &    1.66667e-06 &     2.32558e-05 \\
- $L~[\si{\meter}]$                            &    0.2         &     2.26e+06    &    2.855e+06   & 15000           \\
- $dT~[\si{\kelvin}]$                          &   10           &  2000           & 1000           &    65           \\
- $Pr$                                         &    6.97833     &     0.32        &    1.2e+23     &     0.566667    \\
- $Ra$                                         &    1.15009e+09 &     8.69672e+29 &    1.02731e+07 &     2.59817e+22 \\
+$\alpha~[\si{\per\kelvin}]$                   & 0.00021     & 1.2e-5     & 1.5e-5    & 0.0037    \\
+$\rho~[\si{\kilo\gram\per\cubic\meter}]$      & 1000        & 12000      & 5000      & 1.29      \\
+ $c_p~[\si{\joule\per\kilo\gram\per\kelvin}]$ & 4200        & 800        & 1200      & 1000      \\
+ $\lambda~[\si{\watt\per\meter\per\kelvin}]$  & 0.6         & 30         & 10        & 0.03      \\
+ $\mu~[\si{\pascal\second}]$                  & 0.001       & 0.012      & 1e+21     & 1.7e-5    \\
+ $\nu~[\si{\square\meter\per\second}]$        & 1e-6        & 1e-6       & 2e+17     & 1.3e-5    \\
+ $\kappa~[\si{\square\meter\per\second}]$     & 1.4e-7      & 3.1e-6     & 1.7e-6    & 2.3e-5    \\
+ $L~[\si{\meter}]$                            & 0.2         & 2.3e+6     & 2.9e+6    & 15000     \\
+ $dT~[\si{\kelvin}]$                          & 10.5        & 2000       & 1000      & 65        \\
+ $Pr$                                         & 7           & 0.32       & 1.2e+23   & 0.6       \\
+ $Ra$                                         & 1.2e+9      & 9e+29      & 1e+7      & 2.6e+22   \\
 \hline
 \end{tabular}
-\caption{Tabelle der Parameter und wichtige Stoffgrößen}
+\caption{Tabelle der Parameter und wichtige Stoffgrößen, sowie typische Zahlen.}
 \label{tab:par}
 \end{table}
 
