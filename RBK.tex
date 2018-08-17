@@ -483,7 +483,13 @@ Ist die Advektion im Inneren der Zelle ausreichend groß, so wird dort keine Wä
 Aus einfachen Überlegungen lässt sich schnell nachvollziehen, dass für die Nußelt-Zahl in erster Näherung gilt
 \begin{align}
 	Nu=\frac{L}{2\delta}\quad.
+	\label{eq:nu_grenz}
 \end{align}
+Desweiteren kann in Simulationen zur Bestimmung eine zweite Definition der Nußelt-Zahl verwendet werden:
+\begin{align}
+	Nu=\int\nabla T~dA
+	\label{eq:nu_grad}
+\end{align}<++>
 Eine weitergehende Beschreibung der Nußelt-Zahl und möglicher Abhängigkeiten zu den anderen Parameters kann im Buch von J.S. Turner \cite{Bef} in den Kapiteln 7.1.1, 7.1.3 und 7.3.1 nachgelesen werden.
 %Bild des Temperaturprofils aus der Simulation
 
@@ -830,7 +836,7 @@ Dies kommt daher, dass mit steigendem Turbulenzgrad auch mehr Plumes statistisch
     \begin{subfigure}[t]{0.5\textwidth}
 	\centering
 	\includegraphics[width=1\textwidth]{Nu_sim}
-	\caption{Nußelt Zahlen im zeitlichen Verlauf der Simulation.}
+	\caption{Nußelt-Zahlen im zeitlichen Verlauf der Simulation.}
 	\label{fig:nu_num}
     \end{subfigure}
     \caption{Simulationen für verschiedene Rayleigh-Zahlen.}
@@ -881,11 +887,13 @@ Andererseits müsste die effektive Geschwindigkeit durch die Strömung sogar ger
 
 
 \subsection{Nußelt-Zahl}
+Die Nußelt-Zahl kann entweder nach Formel \ref{eq:nu_grenz} aus der Dicke der Grenzschicht oder (in Simulationen) aus dem Integral über den Temperaturgradienten (Gleichung \ref{eq:nu_num}) bestimmt werden.
+
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\textwidth]{Nu_Ra}
-\caption{Nußelt Zahl gegen Rayleigh Zahl aufgetragen. In blau sind die aus der Comsol-Simulation durch Auswertung des Linienintegrals über den Temperaturfluss an der Oberseite der Zelle bestimmten Werte gezeichnet. }
+\caption{Nußelt-Zahl gegen Rayleigh Zahl aufgetragen. In blau sind die aus der Comsol-Simulation durch Auswertung des Linienintegrals über den Temperaturfluss an der Oberseite der Zelle bestimmten Werte gezeichnet. }
 \label{fig:Nu_Ra}
 \end{figure}
 
