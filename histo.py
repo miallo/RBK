@@ -9,6 +9,7 @@ data = np.genfromtxt("18-06-06/tem_notfallkorrelation.dat")
 hoehe = np.array([0.02,0.05,0.08,0.12,0.15,0.18])
 for i in range(1,7):
     plt.hist(data[:,i],log=True,histtype="step",label="{}cm".format(20-100*hoehe[i-1]),bins=30)#,normed=True)
+plt.ylim(ymin=1)
 plt.legend(loc="best")
 plt.xlabel("Temperatur [$^\circ$C]")
 plt.ylabel(u"Häufigkeit")

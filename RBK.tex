@@ -829,7 +829,7 @@ Dies kommt daher, dass mit steigendem Turbulenzgrad auch mehr Plumes statistisch
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
 	\includegraphics[width=1\linewidth]{T_sim}
-	\caption{Temperaturprofile in Abhängigkeit der Höhe.}
+	\caption{Temperaturprofile in Abhängigkeit der Höhe. Die Position der $x$ zeigt die in Kapitel \ref{sec:nusselt} angenommene Grenzschichtdicke an.}
 	\label{fig:t_num}
     \end{subfigure}
     ~
@@ -887,7 +887,15 @@ Andererseits müsste die effektive Geschwindigkeit durch die Strömung sogar ger
 
 
 \subsection{Nußelt-Zahl}
-Die Nußelt-Zahl kann entweder nach Formel \ref{eq:nu_grenz} aus der Dicke der Grenzschicht oder (in Simulationen) aus dem Integral über den Temperaturgradienten (Gleichung \ref{eq:nu_num}) bestimmt werden.
+\label{sec:nusselt}
+Die Nußelt-Zahl kann entweder nach Formel \ref{eq:nu_grenz} aus der Dicke der Grenzschicht oder (in Simulationen) aus dem Integral über den Temperaturgradienten (Gleichung \ref{eq:nu_grad}) bestimmt werden.
+In Abb. \ref{fig:Nu_Ra} sind für die Simulationen beide Auswertungen aufgetragen.
+Es fällt auf, dass die Werte der Integral-Auswertung oberhalb derjenigen der aus der Grenzschichtdicke liegen.
+Dies liegt vermutlich daran, dass zur Bestimmung der Grenzschichtdicke nicht das erste Minimum in den Temperaturkurven genommen werden sollte, sondern jeweils ein Punkt vorher, bei dem die Steigung noch nicht verschwindend ist.
+
+Allerdings sind die sich für die Nußelt-Zahlen ergebenden Kurven mit guter Übereinstimmung nur durch einen Faktor voneinander verschieden.
+<+++++++++++++++++++++++++++++++++++++++++++++++++++++++++>
+
 
 
 \begin{figure}[!ht]
