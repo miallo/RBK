@@ -28,5 +28,5 @@ for i in range(len(files)):
 #    plt.axvline(1.-Nu_T[i],0,0.55,color=fmts[i])
 plt.legend(loc='best')
 plt.xlabel(u"Höhe (normiert)")
-plt.ylabel("Temperatur $\Delta T$ [a.u.]")
+plt.ylabel(r"Konzentration $\hat =$ $\Delta T$ [a.u.]")
 plt.savefig("../../../images/T_sim.pdf",dpi=300,bbox_inches="tight")

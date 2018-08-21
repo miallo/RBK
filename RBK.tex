@@ -467,8 +467,30 @@ Die zweite ist die Rayleigh-Zahl
 welche das Verhältnis von thermischem Ausgleich durch Auftrieb zu dem durch thermische Diffusion ist.
 Es gibt einen kritischen Wert $Ra_\text{crit}$ ab dem der thermische Ausgleich von reiner Diffusion zu einer zusätzlichen advektiven Bewegung wechselt.
 
-In Tabelle \ref{tab:par} im Anhang sind Kennzahlen für verschiedene Systeme und die jeweiligen Stoffparameter aufgeführt.
-%Beschreibung der Rayleigh Zahl in der Zelle
+In Tabelle \ref{tab:par} sind Kennzahlen für verschiedene Systeme und die jeweiligen Stoffparameter aufgeführt.
+
+\begin{table}
+\centering
+\begin{tabular}{|l|rrrr|}
+\hline
+                                              & Zelle       & Erdkern    & Erdmantel &Atmosphäre \\
+\hline\hline
+$\alpha~[\si{\per\kelvin}]$                   & 0.00021     & 1.2e-5     & 1.5e-5    & 0.0037    \\
+$\rho~[\si{\kilo\gram\per\cubic\meter}]$      & 1000        & 12000      & 5000      & 1.29      \\
+ $c_p~[\si{\joule\per\kilo\gram\per\kelvin}]$ & 4200        & 800        & 1200      & 1000      \\
+ $\lambda~[\si{\watt\per\meter\per\kelvin}]$  & 0.6         & 30         & 10        & 0.03      \\
+ $\mu~[\si{\pascal\second}]$                  & 0.001       & 0.012      & 1e+21     & 1.7e-5    \\
+ $\nu~[\si{\square\meter\per\second}]$        & 1e-6        & 1e-6       & 2e+17     & 1.3e-5    \\
+ $\kappa~[\si{\square\meter\per\second}]$     & 1.4e-7      & 3.1e-6     & 1.7e-6    & 2.3e-5    \\
+ $L~[\si{\meter}]$                            & 0.2         & 2.3e+6     & 2.9e+6    & 15000     \\
+ $dT~[\si{\kelvin}]$                          & 10.5        & 2000       & 1000      & 65        \\
+ $Pr$                                         & 7           & 0.32       & 1.2e+23   & 0.6       \\
+ $Ra$                                         & 1.2e+9      & 9e+29      & 1e+7      & 2.6e+22   \\
+\hline
+\end{tabular}
+\caption{Tabelle der Parameter und wichtige Stoffgrößen, sowie typische Zahlen.}
+\label{tab:par}
+\end{table}
 
 \subsection{Nußelt-Zahl}
 Zur Beschreibung des Wärmetransportes wird die Nußelt-Zahl
@@ -489,7 +511,7 @@ Desweiteren kann in Simulationen zur Bestimmung eine zweite Definition der Nuße
 \begin{align}
 	Nu=\int\nabla T~dA
 	\label{eq:nu_grad}
-\end{align}<++>
+\end{align}
 Eine weitergehende Beschreibung der Nußelt-Zahl und möglicher Abhängigkeiten zu den anderen Parameters kann im Buch von J.S. Turner \cite{Bef} in den Kapiteln 7.1.1, 7.1.3 und 7.3.1 nachgelesen werden.
 %Bild des Temperaturprofils aus der Simulation
 
@@ -699,6 +721,7 @@ Für diese Frequenz wurden in Abb. \ref{fig:stoershift} die nach Formel \ref{eq:
 \end{figure}
 
 \subsection{Geschwindigkeitsprofil und Abbruchfrequenz}
+\label{sec:abbruch}
 Im Spektrum eines Signales eines Thermistors kann man bestimmen, welche Frequenzen noch einen nennenswerten Beitrag zum Signal geben.
 Ab einer gewissen Abbruchfrequenz ist der Beitrag des Signals dem Rauschen gegenüber zu vernachlässigen.
 Ab dieser ist im Spektrum nur noch weißes Rauschen (eine nahezu konstante Amplitude) zu erkennen.
@@ -757,7 +780,7 @@ In 80\% der Zellenhöhe beträgt sie dann nur noch $\SI{0.5}{\centi\meter\per\se
 
 
 \subsection{Langzeit- und Korrelationsmessung}
-
+\label{sec:korrel}
 In Abbildung \ref{fig:tempcorell} ist die Korrelation zwischen benachbarten Thermistoren aufgetragen.
 Dabei wurde die Zeit-Achse mit dem jeweiligen inversen Abstand skaliert, da sich diese unterschieden und somit die Position der Maxima nicht vergleichbar war.
 Es ist zu erkennen, dass sich die Position des Maximum und damit die durchschnittliche Geschwindigkeit sich zwischen den unterschiedlichen Thermistoren unterscheidet.
@@ -797,7 +820,7 @@ Auch sind die hier in dem Finite-Elemente-Simulationsprogramm Comsol durchgefüh
 Dennoch stimmen die Ergebnisse im Allgemeinen gut mit den Messwerten überein.\\
 
 In Abb. \ref{fig:simulation} sind die Ergebnisse einer Simulation für Rayleigh-Zahlen zwischen $10^3$ und $10^7$ dargestellt.
-Anstelle einer Temperatur wurde mit Comsol mit einem Konzentrationsgradienten gerechnet und die Ergebnisse sind in \ref{fig:t_num} dargestellt.
+Anstelle einer Temperatur wurde mit Comsol mit einem Konzentrationsgradienten gerechnet und die Ergebnisse sind in \ref{fig:T_num} dargestellt.
 Da diese aber Formeln der selben Form folgt, sind die Ergebnisse äquivalent zu einem Temperaturprofil.
 
 In \ref{fig:v_num} sind die Geschwindigkeitsprofile gezeigt.
@@ -830,7 +853,7 @@ Dies kommt daher, dass mit steigendem Turbulenzgrad auch mehr Plumes statistisch
         \centering
 	\includegraphics[width=1\linewidth]{T_sim}
 	\caption{Temperaturprofile in Abhängigkeit der Höhe. Die Position der $x$ zeigt die in Kapitel \ref{sec:nusselt} angenommene Grenzschichtdicke an.}
-	\label{fig:t_num}
+	\label{fig:T_num}
     \end{subfigure}
     ~
     \begin{subfigure}[t]{0.5\textwidth}
@@ -847,11 +870,11 @@ Dies kommt daher, dass mit steigendem Turbulenzgrad auch mehr Plumes statistisch
 
 
 \subsection{Vergleiche der Geschwindigkeiten}
+\label{sec:geschwindig}
 Hier sollen die unabhängigen Messungen der Geschwindigkeiten aus der Schattenprojektion (Kapitel \ref{sec:schattenproj}) und der Korrelation (Kapitel \ref{sec:profile}) miteinander verglichen werden.
 
 Die durch die Schattenprojektion bestimmten Werte für die Geschwindigkeit liegen zwischen $\SI{0.7}{\centi\meter\per\second}$ und $\SI{0.9}{\centi\meter\per\second}$, wohingegen die durch die Korrelation ermittelten Werte im Bereich von $\SI{0.5}{\centi\meter\per\second}$ bis $\SI{0.8}{\centi\meter\per\second}$ liegen.
-Zusätzlich zu der in Kapitel \ref{sec:schattenproj} geäußerten Vermutung, dass durch das Selektieren der gut sichtbaren Plumes eine systematische Präferenz der schnelleren Plumes stattfand, kommt, dass die Messungen an unterschiedlichen Zellen gemacht wurden <+++++++++++++++++++++++++++++++++++++++++++++++++++++++++>
-
+Zusätzlich zu der in Kapitel \ref{sec:schattenproj} geäußerten Vermutung, dass durch das Selektieren der gut sichtbaren Plumes eine systematische Präferenz der schnelleren Plumes stattfand, kommt, dass die Messungen an unterschiedlichen Zellen gemacht wurden.
 
 
 
@@ -877,7 +900,7 @@ Nimmt man jedoch die durch die \textsc{Stokes}-Reibung verringerte Geschwindigke
 \begin{align*}
   v_\text{Stokes} = \frac{2}{9}\frac{\left( \rho_\text{Plume}-\rho_\text{Fluid} \right)}{\eta}gR^2=\frac{2}{9}\frac{gR^2~\alpha\Delta T}{\nu}\approx\SI{11}{\centi\meter\per\second}
 \end{align*}
-wobei für den Radius der Plumes \SI{0.5}{\centi\meter} angenommen wurde.
+wobei für den Radius der Plumes $R=\SI{0.5}{\centi\meter}$ angenommen wurde.
 Dies sollte die maximal erreichbare Geschwindigkeit sein (sieht man davon ab, dass bei der Herleitung von einem sphärischen starren Körper ausgegangen wird).
 Zu erkennen ist, dass diese Geschwindigkeit noch immer zu hoch im Vergleich zu den Messwerten ist.
 Zumal man bei der Schattenprojektion schon wenige Zentimeter vom Boden entfernt keine signifikante Beschleunigung mehr mit bloßem Auge erkennbar war.
@@ -892,15 +915,18 @@ Die Nußelt-Zahl kann entweder nach Formel \ref{eq:nu_grenz} aus der Dicke der G
 In Abb. \ref{fig:Nu_Ra} sind für die Simulationen beide Auswertungen aufgetragen.
 Es fällt auf, dass die Werte der Integral-Auswertung oberhalb derjenigen der aus der Grenzschichtdicke liegen.
 Dies liegt vermutlich daran, dass zur Bestimmung der Grenzschichtdicke nicht das erste Minimum in den Temperaturkurven genommen werden sollte, sondern jeweils ein Punkt vorher, bei dem die Steigung noch nicht verschwindend ist.
+Die verwendete Dicke ist in dem Plot \ref{fig:T_num} in Form von Kreuzen eingetragen.
 
-Allerdings sind die sich für die Nußelt-Zahlen ergebenden Kurven mit guter Übereinstimmung nur durch einen Faktor voneinander verschieden.
-<+++++++++++++++++++++++++++++++++++++++++++++++++++++++++>
+Beide folgen jedoch augenscheinlich Potenzgesetzen und die aus Fits bestimmten Ergebnisse betragen $Nu_\text{Grenz}=0.15Ra^{0.25}$ und $Nu_\text{Int}=0.16Ra^{0.28}$.\\
+
+Die aus dem Temperaturverlauf in Kapitel \ref{sec:profile} bestimmten Nußelt-Zahlen sind ebenfalls im Plot \ref{fig:Nu_Ra} dargestellt.
+Die Werte liegen dichter an der Kurve für die Integrale, was wiederum dafür spricht, dass es einen systematischen Fehler bei der Bestimmung der Grenzschichtdicke gab.
 
 
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.8\textwidth]{Nu_Ra}
+\includegraphics[width=0.7\textwidth]{Nu_Ra}
 \caption{Nußelt-Zahl gegen Rayleigh Zahl aufgetragen. In blau sind die aus der Comsol-Simulation durch Auswertung des Linienintegrals über den Temperaturfluss an der Oberseite der Zelle bestimmten Werte gezeichnet. }
 \label{fig:Nu_Ra}
 \end{figure}
@@ -911,43 +937,53 @@ Allerdings sind die sich für die Nußelt-Zahlen ergebenden Kurven mit guter Üb
 
 
 \subsection{Temperaturhistogramme}
+In Abbildung \ref{fig:hist} ist die ein Histogramm der Temperaturen der Thermistoren in verschiedenen Höhen aufgetragen.
+Es ist erkennbar, dass alle Thermistoren ihr Maximum in etwa bei der selben Temperatur haben.
+Die mittleren Thermistoren zeigen jedoch eine deutlich schmalere Temperaturverteilung.
+Die äußersten Temperatursensoren haben deutlich mehr niedrigere bzw. höhere Temperaturwerte.
+Das dies nicht andersherum ist, spricht dafür, dass sich kalte Plumes von der oberen Platte lösen und sich die LSC damit anders herum dreht, als bei der Messung der Schattenprojektion.
+Dies steht ebenfalls in Einklang mit den Temperaturdaten aus Kapitel \ref{sec:korrel}, welche niedriger sind, als diejenigen aus Kapitel \ref{sec:profile}, was wiederrum den Verdacht nahe legt, dass sich das Thermistorarray in dem abwärts fließenden Teil der LSC befindet.
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.8\textwidth]{hist}
-\caption{Histogram der Temperaturen}
+\includegraphics[width=0.7\textwidth]{hist}
+\caption{Histogramm der Temperaturen}
 \label{fig:hist}
 \end{figure}
 
 
 \newpage
-\section{Bewertung der Ergebnisse}
-\label{sec:diskussion}
 
 \newpage
-\section{Anhang}
-\begin{table}
-\centering
-\begin{tabular}{|l|rrrr|}
-\hline
-                                              & Zelle       & Erdkern    & Erdmantel &Atmosphäre \\
-\hline\hline
-$\alpha~[\si{\per\kelvin}]$                   & 0.00021     & 1.2e-5     & 1.5e-5    & 0.0037    \\
-$\rho~[\si{\kilo\gram\per\cubic\meter}]$      & 1000        & 12000      & 5000      & 1.29      \\
- $c_p~[\si{\joule\per\kilo\gram\per\kelvin}]$ & 4200        & 800        & 1200      & 1000      \\
- $\lambda~[\si{\watt\per\meter\per\kelvin}]$  & 0.6         & 30         & 10        & 0.03      \\
- $\mu~[\si{\pascal\second}]$                  & 0.001       & 0.012      & 1e+21     & 1.7e-5    \\
- $\nu~[\si{\square\meter\per\second}]$        & 1e-6        & 1e-6       & 2e+17     & 1.3e-5    \\
- $\kappa~[\si{\square\meter\per\second}]$     & 1.4e-7      & 3.1e-6     & 1.7e-6    & 2.3e-5    \\
- $L~[\si{\meter}]$                            & 0.2         & 2.3e+6     & 2.9e+6    & 15000     \\
- $dT~[\si{\kelvin}]$                          & 10.5        & 2000       & 1000      & 65        \\
- $Pr$                                         & 7           & 0.32       & 1.2e+23   & 0.6       \\
- $Ra$                                         & 1.2e+9      & 9e+29      & 1e+7      & 2.6e+22   \\
-\hline
-\end{tabular}
-\caption{Tabelle der Parameter und wichtige Stoffgrößen, sowie typische Zahlen.}
-\label{tab:par}
-\end{table}
+\section{Bewertung der Ergebnisse}
+\label{sec:diskussion}
+In diesem Versuch wurde die Rayleigh-Bérnard-Konvektionsowohl in Experiment, als auch in der Simulation untersucht.
+Es zeigte sich, dass beide Ansätze wichtige Beiträge zum Verständnis liefern, da die praktische Umsetzung zwar in 3D ist und durch verschiedene Messmethoden weite Einblicke in die realen Umstände gibt.
+Allerdings ist in Experimenten die Variation der Rayleigh-Zahl nur schwer machbar.
+Deren Einfluss konnte mithilfe der Simulationen (wenn auch nur in 2D) untersucht werden.
+Zusätzlich kann bei Simulationen das komplette Geschwindigkeits- sowie Temperaturfeld ermittelt werden.
+Daher können deutlich tiefere Einblicke in die physikalischen Phänomene, welche an der Grenzschicht stattfinden, gewonnen werden.
+Aber auch die Simulationen haben ihre Grenzen, was die Rechenkapazität angeht.
+So konnten die vorliegenden Verhältnisse nicht simuliert werden, allerdings stimmen die Extrapolationen gut mit den Messwerten überein.
+
+
+Das Temperaturfeld konnte mittels eines beweglichen Thermistors vermessen werden und zeigte dabei große Übereinstimmung mit den Simulationsdaten, obwohl durch die dreidimensionalität der Zelle mehr Freiheitsgrade existieren, als in der Simulation.
+Auch konnten aus dieser Messung durch die Ermittlung der Abbruchfrequenzen ein Maß für die Geschwindigkeiten bestimmt werden, welche jedoch weniger gut zu den simulierten Daten passen.
+Dies kann an der hohen Fehleranfälligkeit liegen, da schon alleine deren Bestimmung wie in Kapitel \ref{sec:abbruch} beschrieben Unsicherheiten aufweist, zusätzlich zu den Störfrequenzen, die Aliazing hervorrufen kann.
+
+Die Geschwindigkeiten, welche aus der Schattenprojektion und der Korrelationsmessung ermittelt wurden, lagen in der selben Größenordnung und die Unterschiede lassen sich vermutlich durch die Selektion der gut sichtbaren Plumes erklären.
+Die Diskrepanzen zwischen den in Kapitel \ref{sec:geschwindig} berechneten theoretischen und gemessenen Geschwindigkeiten kommen vermutlich von den Annahmen in den Modellen.
+
+
+Die Nußelt-Zahl konnte sowohl in der Simulation als auch im Experiment auf zwei verschiedene Arten berechnet werden und zeigte, dass die Abhängigkeit von der Rayleigh-Zahl zwar qualitativ ähnlich, jedoch nicht gleich ist.
+Dies liegt vermutlich daran, dass die Grenzschichtdicke nicht korrekt abgeschätzt wurde.\\
+
+In diesem Versuch wurden viele verschiedene Methoden verwendet um Temperatur- und Geschwindigkeiten zu vermessen.
+Im hier durchgeführten Experiment konnte dies nur stichprobenartig gemacht werden.
+Um wie in den Simulationen das komplette Geschwindigkeitsfeld rekonstruieren zu können müsste man auf Verfahren wie \textit{Particle Image Velocimitry} zurückgreifen (die Bewegung kleinster Partikel in der Flüssigkeit wird gefilmt und daraus die Geschwindigkeit des Fluids zurückgerechnet).
+Auch sind die hier verwendeten Thermistoren nur eindimensional bewegbar, was die Datenaufnahme weiter einschränkt.
+Die Umsetzbarkeit von Experimenten mit verschiedenen Größenordnungen an Rayleigh- und Prandtl-Zahlen ist vermutlich schwierig, weshalb auch in Zukunft vermutlich auf Simulationen zurückgegriffen wird.
+
 
 \newpage
 %\nocite{*} %sorgt dafuer, dass alles ausgegeben wird
